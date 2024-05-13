@@ -3,9 +3,10 @@ const path = require('path')
 const toml = require('toml')
 const merge = require('lodash.merge')
 
-const defaultLang = "es_ES"
-
+const defaultLang = "en_US"
+let config = null
 let lang
+
 exports.loadLanguage = function(id){
     lang = merge(lang || {}, toml.parse(fs.readFileSync(path.join(__dirname, '..', 'lang', `${id}.toml`))) || {})
 }
@@ -15,7 +16,7 @@ exports.query = function(id, placeHolders){
     let res = lang
     for(let q of query){
         res = res[q]
-    } 
+    }
     let text = res === lang ? '' : res
     if (placeHolders) {
         Object.entries(placeHolders).forEach(([key, value]) => {
@@ -33,27 +34,28 @@ exports.queryEJS = function(id, placeHolders){
     return exports.query(`ejs.${id}`, placeHolders)
 }
 
-exports.setupLanguage = function(dir){
-    const configPath = dir
-    const firstLaunch = !fs.existsSync(configPath)
-    let config = null
-    // Load Language Files
-
-    if(firstLaunch) {
-        exports.loadLanguage(defaultLang)
-        console.log(defaultLang)
-    }
-    if(!firstLaunch){
-        try {
-            config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
+function getLang(dir) {
+    // ! Yuck, this is sketchy
+    if(dir){
+        try{
+            config = JSON.parse(fs.readFileSync(dir, 'UTF-8'))
+            if(config.settings.launcher.language == undefined) {
+                config.settings.launcher.language = defaultLang
+            }
+            return config.settings.launcher.language
         } catch (err){
-            console.log(err)
-            console.log('Configuration file contains malformed JSON or is corrupt.')
-            fs.ensureDirSync(path.join(configPath, '..'))
+            return defaultLang
         }
-        exports.loadLanguage(config.settings.launcher.language)
     }
-    
-    // Load Custom Language File for Launcher Customizer
-    exports.loadLanguage('_custom')
+}
+
+exports.setupLanguage = function(dir){
+    // Load Language Files and check for conflict with CM
+    slectedLang = getLang(dir)
+    if(slectedLang) {
+        console.log(slectedLang)
+        exports.loadLanguage(slectedLang)
+        // Load Custom Language File for Launcher Customizer
+        exports.loadLanguage('_custom')
+    }
 }
