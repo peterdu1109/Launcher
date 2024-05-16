@@ -1,4 +1,5 @@
 const fs   = require('fs-extra')
+const isDev          = require('./isdev')
 const { LoggerUtil } = require('helios-core')
 const os   = require('os')
 const path = require('path')
@@ -813,10 +814,27 @@ exports.setLanguage = function(lang){
 /**
  * Get the list of all available languages
  * 
+ * Languages are now a resource
+ * this detects the environment of the launcher (if it's dev, if it's a MacOS release or a Windows/Ubuntu release) and applies the directory in any case
+ * this aims to fix the releases because before it only worked in the dev environment, it works on Windows but still needs testing on MacOS and Ubuntu
+ * 
+ * sorry for this shtty code LMAO
+ * 
  * @param {function} callback
  */
 exports.getAllLanguages = function(callback) {
-    fs.readdir('./app/assets/lang/', (err, files) => {
+    if(isDev){
+        fs.readdir(path.join(process.cwd(), 'lang'), (err, files) => {
+            if (err) {
+                callback(err)
+            } else {
+                const fileNames = files.map(file => file.replace('.toml', ''))
+                callback(null, fileNames)
+            }
+        })
+    } else {
+    if(process.platform === 'darwin'){
+    fs.readdir(path.join(process.cwd(), 'Content', 'Resources', 'lang'), (err, files) => {
         if (err) {
             callback(err)
         } else {
@@ -824,4 +842,14 @@ exports.getAllLanguages = function(callback) {
             callback(null, fileNames)
         }
     })
+    } else {
+    fs.readdir(path.join(process.cwd(), 'Resources', 'lang'), (err, files) => {
+        if (err) {
+            callback(err)
+        } else {
+            const fileNames = files.map(file => file.replace('.toml', ''))
+            callback(null, fileNames)
+        }
+    })
+    }}
 }

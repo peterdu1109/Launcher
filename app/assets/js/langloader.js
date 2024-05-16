@@ -1,4 +1,5 @@
 const fs = require('fs-extra')
+const isDev = require('./isdev')
 const path = require('path')
 const toml = require('toml')
 const merge = require('lodash.merge')
@@ -7,8 +8,24 @@ const defaultLang = "en_US"
 let config = null
 let lang
 
+/**
+ * Languages are now a resource
+ * this detects the environment of the launcher (if it's dev, if it's a MacOS release or a Windows/Ubuntu release) and applies the directory in any case
+ * this aims to fix the releases because before it only worked in the dev environment, it works on Windows but still needs testing on MacOS and Ubuntu
+ * 
+ * sorry for this shtty code LMAO
+ */
+
 exports.loadLanguage = function(id){
-    lang = merge(lang || {}, toml.parse(fs.readFileSync(path.join(__dirname, '..', 'lang', `${id}.toml`))) || {})
+    if(isDev){
+        lang = merge(lang || {}, toml.parse(fs.readFileSync(path.join(process.cwd(), 'lang', `${id}.toml`))) || {})
+    } else {
+        if(process.platform === 'darwin'){
+            lang = merge(lang || {}, toml.parse(fs.readFileSync(path.join(process.cwd(), 'Content', 'Resources', 'lang', `${id}.toml`))) || {})
+    } else {
+        lang = merge(lang || {}, toml.parse(fs.readFileSync(path.join(process.cwd(), 'resources', 'lang', `${id}.toml`))) || {})
+}
+}
 }
 
 exports.query = function(id, placeHolders){
