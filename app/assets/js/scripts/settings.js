@@ -133,7 +133,6 @@ async function initSettingsValues(){
         const cVal = v.getAttribute('cValue')
         const serverDependent = v.hasAttribute('serverDependent') // Means the first argument is the server id.
         const gFn = ConfigManager['get' + cVal]
-        console.log(gFn)
         const gFnOpts = []
         if(serverDependent) {
             gFnOpts.push(ConfigManager.getSelectedServer())
