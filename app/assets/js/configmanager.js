@@ -84,7 +84,8 @@ const DEFAULT_CONFIG = {
             resHeight: 720,
             fullscreen: false,
             autoConnect: true,
-            launchDetached: true
+            launchDetached: true,
+            SyncLanguage: true
         },
         launcher: {
             language: 'en_US',
@@ -797,6 +798,25 @@ exports.setAllowPrerelease = function(allowPrerelease){
 
 exports.getCurrentLanguage = function(def = false){
     return !def ? config.settings.launcher.language : DEFAULT_CONFIG.settings.launcher.language
+}
+
+/**
+ * Change the status of if the game should be launched in fullscreen mode.
+ * 
+ * @param {boolean} SyncLanguage Whether or not the game should launch in fullscreen mode.
+ */
+exports.setSyncLanguage = function(SyncLanguage){
+    config.settings.game.SyncLanguage = SyncLanguage
+}
+
+/**
+ * Check if the game should auto connect to servers.
+ * 
+ * @param {boolean} def Optional. If true, the default value will be returned.
+ * @returns {boolean} Whether or not the game should auto connect to servers.
+ */
+exports.getSyncLanguage = function(def = false){
+    return !def ? config.settings.game.SyncLanguage : DEFAULT_CONFIG.settings.game.SyncLanguage
 }
 
 /**

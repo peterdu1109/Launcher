@@ -415,6 +415,46 @@ class ProcessBuilder {
             }
         }
 
+        async function findLineContainingString(filePath, searchString) {
+            try {
+              const data = await fs.readFile(filePath, 'utf-8')
+              const lines = data.split('\n')
+          
+              for (const line of lines) {
+                if (line.includes(searchString)) {
+                  return line
+                }
+              }
+              return null
+            } catch (err) {
+              console.error(err)
+              return null
+            }
+          }
+          async function ChangeOption(filePath, lineToReplace, newLine) {
+            try {
+              const exists = await fs.pathExists(filePath)
+              if (exists) {
+                const foundLine = await findLineContainingString(filePath, lineToReplace)
+                if (foundLine) {
+                  let fileContent = await fs.readFile(filePath, 'utf8')
+                  fileContent = fileContent.replace(foundLine, newLine)
+                  await fs.outputFile(filePath, fileContent)
+                } else {
+                  await fs.appendFile(filePath, '\n' + newLine)
+                }
+              } else {
+                await fs.outputFile(filePath, newLine)
+              }
+            } catch (err) {
+              console.error(err)
+            }
+          }
+          
+        if(ConfigManager.getSyncLanguage()) {          
+          ChangeOption(path.join(this.gameDir, "options.txt"), 'lang:', 'lang:' + ConfigManager.getCurrentLanguage())
+        }
+
         //args.push('-Dlog4j.configurationFile=D:\\WesterosCraft\\game\\common\\assets\\log_configs\\client-1.12.xml')
 
         // Java Arguments
