@@ -801,6 +801,14 @@ exports.getCurrentLanguage = function(def = false){
 }
 
 /**
+ * Convert the language code to lowercase for the launcher and game language sync.
+ */
+exports.getCurrentLanguageLowercase = function(def = false) {
+    const language = !def ? config.settings.launcher.language : DEFAULT_CONFIG.settings.launcher.language
+    return language.toLowerCase()
+}
+
+/**
  * Change the status of if the game should be launched in fullscreen mode.
  * 
  * @param {boolean} SyncLanguage Whether or not the game should launch in fullscreen mode.
