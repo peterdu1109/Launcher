@@ -20,7 +20,7 @@ newsErrorNoneSpan = "No News"
 
 [ejs.login]
 loginCancelText = "Cancel"
-loginSubheader = "MINECRAFT LOGIN"
+loginSubheader = "Hasta Login"
 loginEmailError = "* Invalid Value"
 loginEmailPlaceholder = "EMAIL OR USERNAME"
 loginPasswordError = "* Required"
@@ -31,8 +31,8 @@ loginRememberMeText = "remember me?"
 loginButtonText = "LOGIN"
 loginNeedAccountLink = "https://minecraft.net/store/minecraft-java-edition/"
 loginNeedAccountText = "Need an Account?"
-loginPasswordDisclaimer1 = "Your password is sent directly to mojang and never stored."
-loginPasswordDisclaimer2 = "{appName} is not affiliated with Mojang AB."
+loginPasswordDisclaimer1 = "Your password is sent directly to Hasta Studios and never stored."
+loginPasswordDisclaimer2 = "Hasta Studios auth is 100% safe with your data"
 
 [ejs.loginOptions]
 loginOptionsTitle = "Login Options"
