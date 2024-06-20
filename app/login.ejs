@@ -28,13 +28,6 @@
                     <span class="loginErrorSpan" id="loginPasswordError"><%- lang('login.loginPasswordError') %></span>
                     <input id="loginPassword" class="loginField" type="password" placeholder="<%- lang('login.loginPasswordPlaceholder') %>"/>
                 </div>
-                <div id="loginOptions">
-                    <label id="checkmarkContainer">
-                        <input id="loginRememberOption" type="checkbox" checked>
-                        <span id="loginRememberText" class="loginSpanDim"><%- lang('login.loginRememberMeText') %></span>
-                        <span class="loginCheckmark"></span>
-                    </label>
-                </div>
                 <button id="loginButton" class="glow-on-hover" disabled>
                     <div id="loginButtonContent">
                         <%- lang('login.loginButtonText') %>
@@ -45,7 +38,6 @@
                             <polyline class="arrowLine" points="0.71 13.26 12.56 1.41 24.16 13.02"/>
                         </svg>
                         <div class="circle-loader">
-                            <div class="checkmark draw"></div>
                         </div>
                     </div>
                 </button>
@@ -56,13 +48,11 @@
                     <span class="loginSpanDim" id="loginRegisterSpan" style="margin-left: 30px;">
                         <a href="<%- lang('login.loginNeedAccountLink') %>"><%- lang('login.loginNeedAccountText') %></a>
                     </span>
+        <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer1') %></p>
+        <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer2', { appName: lang('app.title') }) %></p>
                 </div>
             </form>
         </div>
-    </div>
-    <div id="loginDisclaimer">
-        <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer1') %></p>
-        <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer2', { appName: lang('app.title') }) %></p>
     </div>
     <script src="./assets/js/scripts/login.js"></script>
 </div>

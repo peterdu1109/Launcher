@@ -507,8 +507,8 @@ button {
 #loginForm {
     height: 70vh;
     width: 350px;
-    background-color: #04010a7d;
-    border-radius: 5%;
+    background-color: #121212;
+    border-radius: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -549,8 +549,8 @@ button {
 #loginSubheader {
     margin-top: 5vh;
     font-family: 'Avenir Medium';
-    margin-bottom: 15vh;
-    font-size: 15px;
+    margin-bottom: 3vh;
+    font-size: 25px;
     letter-spacing: 1px;
     font-weight: bold;
 }
@@ -569,6 +569,7 @@ button {
     fill: #fff;
     height: 20px;
     width: 20px;
+    margin-bottom: 5px;
 }
 
 /* Span which displays errors related to login field content. */
@@ -615,20 +616,14 @@ button {
 
 /* Login text input styles. */
 .loginField {
-    font-family: 'Avenir Book';
-    background: none;
-    border-width: 1.5px 0px 0px 0px;
-    border-style: solid;
-    width: 250px;
-    margin-bottom: 20px;
-    border-color: #fff;
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: bold;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 7.5px;
-    font-size: 10px;
-    letter-spacing: 1px;
+    background-color: #3b4148;
+    border-radius: 5px;
+    border: aliceblue;
+    color: #a9a9a9;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 235px;
+    height: 35px;
 }
 
 .loginField:focus {
@@ -658,7 +653,7 @@ button {
 
 /* Container which contains the forgot and remember options. */
 #loginOptions {
-    margin-top: 15px;
+    margin-top: 1px;
     flex-direction: column;
     display: flex;
     justify-content: space-between;
@@ -673,19 +668,19 @@ button {
     align-items: center;
     padding-right: 10px;
     transition: 0.25s ease;
+    display: none;
 }
 
 /* Login button styles. */
 #loginButton {
-    background: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: none;
-    padding: 15px 5px;
-    margin: 10px;
+    background: #1ac386;
+    border: 0;
+    width: 70%;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
     cursor: pointer;
-    position: relative;
-    transition: 0.5s ease;
+    transition: background 0.3s ease-in-out;
 }
 
 #loginButton:disabled {
