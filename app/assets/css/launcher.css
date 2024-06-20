@@ -1706,6 +1706,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Image of the auth account's skin. */
 .settingsAuthAccountImage {
     height: 115px;
+    margin-bottom: -6px;
 }
 
 /* Right hand side of the auth account, for info + actions. */
@@ -3479,6 +3480,7 @@ input:checked+.toggleSwitchSlider:before {
     color: #848484;
     margin-left: 15px;
     font-family: 'sans-serif';
+    display: none;
 }
 
 /* Tooltip which displays more details about the mojang statuses. */
