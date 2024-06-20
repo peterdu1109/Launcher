@@ -507,7 +507,7 @@ button {
 #loginForm {
     height: 70vh;
     width: 350px;
-    background-color: #121212;
+    background-color: #121212ad;
     border-radius: 3%;
     display: flex;
     flex-direction: column;
