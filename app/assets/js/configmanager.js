@@ -1,6 +1,6 @@
 const fs   = require('fs-extra')
 const isDev          = require('./isdev')
-const { LoggerUtil } = require('helios-core')
+const { LoggerUtil } = require('hasta-core')
 const os   = require('os')
 const path = require('path')
 const app = require('@electron/remote').app
