@@ -3394,34 +3394,84 @@ input:checked + .toggleSwitchSlider:before {
     position: relative;
     top: 25px;
     display: inline-flex;
+    align-items:center;
 }
 
 /* The launch button. */
 #launch_button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-weight: 900;
+    position: relative;
+    padding: 8px 25px;
+    border-radius: 7px;
+    border: 1px solid rgb(0, 255, 196);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 2px;
-    text-shadow: 0px 0px 0px #bebcbb;
-    font-size: 20px;
-    padding: 0px;
-    transition: 0.25s ease;
-    outline: none;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
 }
-#launch_button:hover,
-#launch_button:focus {
-    text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff;
+
+    #launch_button:hover {
+        background: rgb(0, 255, 196);
+        box-shadow: 0 0 13px 5px rgba(0, 142, 236, 0.815);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+
+        #launch_button:hover::before {
+            -webkit-animation: sh02 0.5s 0s linear;
+            -moz-animation: sh02 0.5s 0s linear;
+            animation: sh02 0.5s 0s linear;
+        }
+
+    #launch_button::before {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+    }
+
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
 }
+
 #launch_button:active {
-    color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
 }
-#launch_button:disabled {
-    color: #c7c7c7;
-    cursor: default;
-    pointer-events: none;
-}
+
+
 
 /* Launch details main container, hidden until launch processing begins. */
 #launch_details {
