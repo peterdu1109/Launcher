@@ -624,55 +624,89 @@ const settingsCurrentMojangAccounts = document.getElementById('settingsCurrentMo
 /**
  * Add auth account elements for each one stored in the authentication database.
  */
-function populateAuthAccounts(){
-    const authAccounts = ConfigManager.getAuthAccounts()
-    const authKeys = Object.keys(authAccounts)
-    if(authKeys.length === 0){
-        return
+async function fetchSkinAndConvertToBase64(username) {
+  try {
+    const skinURL = `https://auth.zelthoriaismp.cloud/skin/${username}.png`;
+    const response = await fetch(skinURL);
+
+    if (!response.ok) {
+      throw new Error('Error fetching skin image: ' + response.status);
     }
-    const selectedUUID = ConfigManager.getSelectedAccount().uuid
 
-    let microsoftAuthAccountStr = ''
-    let mojangAuthAccountStr = ''
+    const blob = await response.blob();
 
-    authKeys.forEach((val) => {
-        const acc = authAccounts[val]
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result.split(',')[1]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    return 'MHF_Question';
+  }
+}
+    
+async function populateAuthAccounts() {
+  const authAccounts = ConfigManager.getAuthAccounts();
+  const authKeys = Object.keys(authAccounts);
+  if (authKeys.length === 0) {
+    return;
+  }
+  const selectedUUID = ConfigManager.getSelectedAccount().uuid;
+
+  let microsoftAuthAccountStr = '';
+  let mojangAuthAccountStr = '';
+
+  for (const val of authKeys) {
+    const acc = authAccounts[val];
+
+    try {
+      const base64modifier = await fetchSkinAndConvertToBase64(acc.displayName);
+
+      if (base64modifier !== null) {
+        const finalURL = `https://visage.surgeplay.com/bust/512/${encodeURIComponent(base64modifier)}`;
 
         const accHtml = `<div class="settingsAuthAccount" uuid="${acc.uuid}">
-            <div class="settingsAuthAccountLeft">
-                <img class="settingsAuthAccountImage" alt="${acc.displayName}" src="https://mc-heads.net/body/${acc.uuid}/60">
+          <div class="settingsAuthAccountLeft">
+          <img class="settingsAuthAccountImage" alt="${acc.displayName}" src="${finalURL}">
+          </div>
+          <div class="settingsAuthAccountRight">
+            <div class="settingsAuthAccountDetails">
+              <div class="settingsAuthAccountDetailPane">
+                <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.username')}</div>
+                <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
+              </div>
+              <div class="settingsAuthAccountDetailPane">
+                <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.uuid')}</div>
+                <div class="settingsAuthAccountDetailValue">${acc.uuid}</div>
+              </div>
             </div>
-            <div class="settingsAuthAccountRight">
-                <div class="settingsAuthAccountDetails">
-                    <div class="settingsAuthAccountDetailPane">
-                        <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.username')}</div>
-                        <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
-                    </div>
-                    <div class="settingsAuthAccountDetailPane">
-                        <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.uuid')}</div>
-                        <div class="settingsAuthAccountDetailValue">${acc.uuid}</div>
-                    </div>
-                </div>
-                <div class="settingsAuthAccountActions">
-                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>' + Lang.queryJS('settings.authAccountPopulate.selectedAccount') : '>' + Lang.queryJS('settings.authAccountPopulate.selectAccount')}</button>
-                    <div class="settingsAuthAccountWrapper">
-                        <button class="settingsAuthAccountLogOut">${Lang.queryJS('settings.authAccountPopulate.logout')}</button>
-                    </div>
-                </div>
+            <div class="settingsAuthAccountActions">
+              <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>' + Lang.queryJS('settings.authAccountPopulate.selectedAccount') : '>' + Lang.queryJS('settings.authAccountPopulate.selectAccount')}</button>
+              <div class="settingsAuthAccountWrapper">
+                <button class="settingsAuthAccountLogOut">${Lang.queryJS('settings.authAccountPopulate.logout')}</button>
+              </div>
             </div>
-        </div>`
+          </div>
+        </div>`;
 
-        if(acc.type === 'microsoft') {
-            microsoftAuthAccountStr += accHtml
+        if (acc.type === 'microsoft') {
+          microsoftAuthAccountStr += accHtml;
         } else {
-            mojangAuthAccountStr += accHtml
+          mojangAuthAccountStr += accHtml;
         }
+      }
+    } catch (error) {
+      // Handle error silently
+    }
+  }
 
-    })
-
-    settingsCurrentMicrosoftAccounts.innerHTML = microsoftAuthAccountStr
-    settingsCurrentMojangAccounts.innerHTML = mojangAuthAccountStr
+  settingsCurrentMicrosoftAccounts.innerHTML = microsoftAuthAccountStr;
+  settingsCurrentMojangAccounts.innerHTML = mojangAuthAccountStr;
 }
+
 
 /**
  * Prepare the accounts tab for display.

@@ -142,19 +142,53 @@ document.getElementById('avatarOverlay').onclick = async e => {
 }
 
 // Bind selected account
-function updateSelectedAccount(authUser){
-    let username = Lang.queryJS('landing.selectedAccount.noAccountSelected')
-    if(authUser != null){
-        if(authUser.displayName != null){
-            username = authUser.displayName
-        }
-        if(authUser.uuid != null){
-            document.getElementById('avatarContainer').style.backgroundImage = `url('https://mc-heads.net/body/${authUser.uuid}/right')`
-        }
+async function fetchSkinAndConvertToBase64(username) {
+  try {
+    const skinURL = `https://auth.zelthoriaismp.cloud/skin/${username}.png`;
+    const response = await fetch(skinURL);
+
+    if (!response.ok) {
+      throw new Error('Error fetching skin image: ' + response.status);
     }
-    user_text.innerHTML = username
+
+    const blob = await response.blob();
+
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result.split(',')[1]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    return 'MHF_Question';
+  }
 }
-updateSelectedAccount(ConfigManager.getSelectedAccount())
+
+async function updateSelectedAccount(authUser) {
+  let username = Lang.queryJS('landing.selectedAccount.noAccountSelected');
+  if (authUser != null) {
+    if (authUser.displayName != null) {
+      username = authUser.displayName;
+    }
+
+    if (authUser.uuid != null) {
+      try {
+        const base64modifier = await fetchSkinAndConvertToBase64(authUser.displayName);
+        if (base64modifier !== 'MHF_Question') {
+          document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/${encodeURIComponent(base64modifier)}')`;
+        }
+      } catch (error) {
+        console.error('Error fetching or converting skin:', error);
+      }
+    }
+  }
+  user_text.innerHTML = username;
+}
+
+// Call the function with the selected account
+updateSelectedAccount(ConfigManager.getSelectedAccount());
 
 // Bind selected server
 function updateSelectedServer(serv){
