@@ -49,7 +49,6 @@ accountSelectConfirm = "Select"
 accountSelectCancel = "Cancel"
 
 [ejs.settings]
-closeLauncherOnLaunch = "Close the launcher when the game is launched."
 navHeaderText = "Settings"
 navAccount = "Account"
 navMinecraft = "Minecraft"
