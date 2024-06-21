@@ -88,6 +88,8 @@ const DEFAULT_CONFIG = {
             SyncLanguage: true
         },
         launcher: {
+            resWidth: 1920,
+            resHeight: 1080,
             language: 'en_US',
             allowPrerelease: false,
             dataDirectory: dataPath
@@ -724,7 +726,7 @@ exports.validateGameHeight = function(resHeight){
  * @param {boolean} def Optional. If true, the default value will be returned.
  * @returns {boolean} Whether or not the game is set to launch in fullscreen mode.
  */
-exports.getFullscreen = function(def = false){
+exports.getFullscreen = function(def = true){
     return !def ? config.settings.game.fullscreen : DEFAULT_CONFIG.settings.game.fullscreen
 }
 

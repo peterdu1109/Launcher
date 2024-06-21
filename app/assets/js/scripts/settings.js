@@ -663,62 +663,97 @@ async function populateAuthAccounts() {
   let microsoftAuthAccountStr = '';
   let mojangAuthAccountStr = '';
 
-  for (const val of authKeys) {
-    const acc = authAccounts[val];
+    // Array para armazenar todas as promessas
+    const promises = [];
 
-    try {
-      const base64modifier = await fetchSkinAndConvertToBase64(acc.displayName);
+  authKeys.forEach((val) => {
+    const acc = authAccounts[val]
 
-      if (base64modifier !== null) {
-        const finalURL = `https://visage.surgeplay.com/bust/512/${encodeURIComponent(base64modifier)}`;
+promises.push(
+            fetchSkinAndConvertToBase64(acc.displayName)
+                .then(result => {
+                    // Use base64Image aqui para construir a URL da imagem
+                    const encodedBase64 = encodeURIComponent(result);
+                    const skinURL = `https://visage.surgeplay.com/bust/256/${encodedBase64}`;
+                    const skinMSFT = `https://visage.surgeplay.com/bust/256/${acc.uuid}`;
 
-        const accHtml = `<div class="settingsAuthAccount" uuid="${acc.uuid}">
-          <div class="settingsAuthAccountLeft">
-          <img class="settingsAuthAccountImage" alt="${acc.displayName}" src="${finalURL}">
-          </div>
-          <div class="settingsAuthAccountRight">
+                    const accBS = `<div class="settingsAuthAccount" uuid="${acc.uuid}">
+        <div class="settingsAuthAccountLeft">
+            <img class="settingsAuthAccountImage" alt="${acc.displayName}" src="${skinURL}">
+        </div>
+        <div class="settingsAuthAccountRight">
             <div class="settingsAuthAccountDetails">
-              <div class="settingsAuthAccountDetailPane">
-                <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.username')}</div>
-                <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
-              </div>
-              <div class="settingsAuthAccountDetailPane">
-                <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.uuid')}</div>
-                <div class="settingsAuthAccountDetailValue">${acc.uuid}</div>
-              </div>
+                <div class="settingsAuthAccountDetailPane">
+                    <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.username')}</div>
+                    <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
+                </div>
+                <div class="settingsAuthAccountDetailPane">
+                    <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.uuid')}</div>
+                    <div class="settingsAuthAccountDetailValue">${acc.uuid}</div>
+                </div>
             </div>
             <div class="settingsAuthAccountActions">
-              <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>' + Lang.queryJS('settings.authAccountPopulate.selectedAccount') : '>' + Lang.queryJS('settings.authAccountPopulate.selectAccount')}</button>
-              <div class="settingsAuthAccountWrapper">
-                <button class="settingsAuthAccountLogOut">${Lang.queryJS('settings.authAccountPopulate.logout')}</button>
-              </div>
+                <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>' + Lang.queryJS('settings.authAccountPopulate.selectedAccount') : '>' + Lang.queryJS('settings.authAccountPopulate.selectAccount')}</button>
+                <div class="settingsAuthAccountWrapper">
+                    <button class="settingsAuthAccountLogOut">${Lang.queryJS('settings.authAccountPopulate.logout')}</button>
+                </div>
             </div>
-          </div>
-        </div>`;
+        </div>
+    </div>`
+    
+    const accMSFT = `<div class="settingsAuthAccount" uuid="${acc.uuid}">
+    <div class="settingsAuthAccountLeft">
+        <img class="settingsAuthAccountImage" alt="${acc.displayName}" src="${skinMSFT}">
+    </div>
+    <div class="settingsAuthAccountRight">
+        <div class="settingsAuthAccountDetails">
+            <div class="settingsAuthAccountDetailPane">
+                <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.username')}</div>
+                <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
+            </div>
+            <div class="settingsAuthAccountDetailPane">
+                <div class="settingsAuthAccountDetailTitle">${Lang.queryJS('settings.authAccountPopulate.uuid')}</div>
+                <div class="settingsAuthAccountDetailValue">${acc.uuid}</div>
+            </div>
+        </div>
+        <div class="settingsAuthAccountActions">
+            <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>' + Lang.queryJS('settings.authAccountPopulate.selectedAccount') : '>' + Lang.queryJS('settings.authAccountPopulate.selectAccount')}</button>
+            <div class="settingsAuthAccountWrapper">
+                <button class="settingsAuthAccountLogOut">${Lang.queryJS('settings.authAccountPopulate.logout')}</button>
+            </div>
+        </div>
+    </div>
+</div>`
 
-        if (acc.type === 'microsoft') {
-          microsoftAuthAccountStr += accHtml;
-        } else {
-          mojangAuthAccountStr += accHtml;
-        }
-      }
-    } catch (error) {
-      // Handle error silently
+    if(acc.type === 'microsoft') {
+        microsoftAuthAccountStr += accMSFT
+    } else {
+        mojangAuthAccountStr += accBS
     }
-  }
+})
+.catch(error => {
+    console.error('Erro ao buscar e converter a imagem:', error);
+})
+);
+})
 
-  settingsCurrentMicrosoftAccounts.innerHTML = microsoftAuthAccountStr;
-  settingsCurrentMojangAccounts.innerHTML = mojangAuthAccountStr;
+// Aguarde a conclusão de todas as promessas antes de retornar
+await Promise.all(promises);
+
+    // Atualize as contas de autenticação depois de receber todas as imagens
+    return { microsoftAuthAccountStr, mojangAuthAccountStr };
 }
 
 
 /**
  * Prepare the accounts tab for display.
  */
-function prepareAccountsTab() {
-    populateAuthAccounts()
-    bindAuthAccountSelect()
-    bindAuthAccountLogOut()
+async function prepareAccountsTab() {
+    const { microsoftAuthAccountStr, mojangAuthAccountStr } = await populateAuthAccounts();
+    settingsCurrentMicrosoftAccounts.innerHTML = microsoftAuthAccountStr;
+    settingsCurrentMojangAccounts.innerHTML = mojangAuthAccountStr;
+    bindAuthAccountSelect();
+    bindAuthAccountLogOut();
 }
 
 /**
