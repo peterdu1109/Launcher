@@ -68,6 +68,11 @@ function mojangErrorDisplayable(errorCode) {
                 title: Lang.queryJS('auth.mojang.error.accountMigratedTitle'),
                 desc: Lang.queryJS('auth.mojang.error.accountMigratedDesc')
             }
+            case MojangErrorCode.ERROR_INVALID_USER:
+                return {
+                    title: Lang.queryJS('auth.mojang.error.invalidUserTitle'),
+                    desc: Lang.queryJS('auth.mojang.error.invalidUserDesc')
+                }
         case MojangErrorCode.ERROR_INVALID_CREDENTIALS:
             return {
                 title: Lang.queryJS('auth.mojang.error.invalidCredentialsTitle'),
