@@ -1843,7 +1843,7 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main content container for the mod elements. */
 #settingsModsContainer {
-    width: 75%;
+    width: 85%;
 }
 
 /* Mod sub-container header text. */
@@ -3252,6 +3252,21 @@ input:checked+.toggleSwitchSlider:before {
     height: 20px;
 }
 
+.tiktokSVG {
+    fill: #ffffff;
+    height: 12px;
+    transition: 0.25s ease;
+    cursor: pointer;
+    height: 18px;
+    width: 25px;
+}
+
+    .tiktokSVG:hover,
+    .mediaURL:focus .tiktokSVG,
+    .tiktokSVG:active {
+        height: 24px;
+    }
+
 /* Social media URL shared styles. */
 .mediaURL {
     outline: none;
@@ -3329,16 +3344,7 @@ input:checked+.toggleSwitchSlider:before {
     fill: #1b8dd4;
 }
 
-/* Instagram icon colors. */
-#instagramSVG:hover,
-#instagramURL:focus #instagramSVG {
-    fill: url('#instaFill')
-        /*fill: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); */
-}
 
-#instagramSVG:active {
-    fill: url('#instaFill')
-}
 
 /* Youtube icon colors. */
 #youtubeSVG:hover,
@@ -3357,9 +3363,17 @@ input:checked+.toggleSwitchSlider:before {
 }
 
 #discordSVG:active {
-    fill: #657ac4;
+    fill: #a500ff;
 }
 
+#tiktok:hover,
+#tiktok:focus #tiktok {
+    fill: #9500e5;
+}
+
+#tiktok:active {
+    fill: #a500ff;
+}
 /*******************************************************************************
  *                                                                             *
  * Landing View (Bottom Styles)                                                *

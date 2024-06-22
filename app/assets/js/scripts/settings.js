@@ -1070,11 +1070,8 @@ async function reloadDropinMods(){
 
 //Languages
 let langCodes = {
-    "ja_JP": "日本人",
     "en_US": "English",
-    "es_ES": "Español",
-    "fr_FR": "Français",
-    "ko_KR": "한국어"
+    "pt_BR": "Portugues-BR",
 } 
 
 async function resolveLanguageForUI() {
@@ -1587,7 +1584,7 @@ function populateAboutVersionInformation(){
  */
 function populateReleaseNotes(){
     $.ajax({
-        url: 'https://github.com/dscalzi/HeliosLauncher/releases.atom',
+        url: 'https://github.com/Shisuiicaro/HastaStudiosLauncher/releases.atom',
         success: (data) => {
             const version = 'v' + remote.app.getVersion()
             const entries = $(data).find('entry')

@@ -1,11 +1,11 @@
 {
     "name": "HastaStudiosLauncher",
-    "version": "2.2.1",
+    "version": "2.0.0",
     "productName": "Hasta Studios Launcher",
     "description": "Oficial Laucnher For All Hasta Studios And ZSMP Projects",
     "author": "Shisuys (https://github.com/shisuiicaro/)",
     "license": "UNLICENSED",
-    "homepage": "https://github.com/Shisuiicaro/Hasta-studios-Launcher",
+    "homepage": "https://github.com/Shisuiicaro/HastaStudiosLauncher",
     "bugs": {
         "url": "https://discord.gg/zsmp"
     },
@@ -46,6 +46,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
+        "url": "git+https://github.com/Shisuiicaro/HastaStudiosLauncher.git"
     }
 }
