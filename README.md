@@ -7,7 +7,7 @@ A custom launcher for all Hasta Studios projects.
 
 ![Launcher Screenshot](https://zelthoriaismp.cloud/launcher2.png)
 
-![Launcher Screenshot 2](https://zelthoriaismp.cloud/launcher2.png)
+![Launcher Screenshot 2](https://zelthoriaismp.cloud/launcher1.png)
 
 ## Features
 
