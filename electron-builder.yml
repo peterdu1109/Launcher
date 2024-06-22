@@ -1,8 +1,8 @@
-appId: 'helioslauncher'
-productName: 'Helios Launcher'
+appId: 'HastaStudiosLauncher'
+productName: 'Hasta Studios Launcher'
 artifactName: '${productName}-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2024 Daniel Scalzi'
+copyright: 'Copyright © 2018-2024 Shisuys'
 
 asar: true
 compression: 'maximum'
@@ -40,10 +40,10 @@ mac:
 # Linux Configuration
 linux: 
   target: 'AppImage'
-  maintainer: 'Daniel Scalzi'
-  vendor: 'Daniel Scalzi'
-  synopsis: 'Modded Minecraft Launcher'
-  description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.'
+  maintainer: 'Shisuys'
+  vendor: 'Shisuys'
+  synopsis: 'Hasta Studios Minecraft Launcher'
+  description: 'Oficial Laucnher For All Hasta Studios And ZSMP Projects'
   category: 'Game'
 
 
