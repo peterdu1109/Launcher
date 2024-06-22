@@ -22,7 +22,7 @@ A custom launcher for all Hasta Studios projects.
 
 ## Usage
 
-1. Download the launcher from [here](https://example.com).
+1. Download the launcher from [here](https://hastastudios.zelthoriaismp.cloud).
 2. Install it on your system.
 3. Run the launcher and enjoy.
 
