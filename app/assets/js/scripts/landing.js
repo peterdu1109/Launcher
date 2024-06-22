@@ -168,7 +168,9 @@ async function fetchSkinAndConvertToBase64(username) {
 
 async function updateSelectedAccount(authUser) {
   let username = Lang.queryJS('landing.selectedAccount.noAccountSelected');
+  const authAccounts = ConfigManager.getSelectedAccount()
   if (authUser != null) {
+    const acc = authAccounts
     if (authUser.displayName != null) {
       username = authUser.displayName;
     }
@@ -177,11 +179,22 @@ async function updateSelectedAccount(authUser) {
       try {
         const base64modifier = await fetchSkinAndConvertToBase64(authUser.displayName);
         if (base64modifier !== 'MHF_Question') {
-          document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/${encodeURIComponent(base64modifier)}')`;
+          document.getElementById('avatarContainer').style.backgroundImage = `urlurl('https://visage.surgeplay.com/face/256/${authUser.uuid}')`;
         }
       } catch (error) {
         console.error('Error fetching or converting skin:', error);
       }
+    } if (acc.type === 'mojang') {
+        try {
+          const base64modifier = await fetchSkinAndConvertToBase64(authUser.displayName);
+          if (base64modifier !== 'MHF_Question') {
+            document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/${encodeURIComponent(base64modifier)}')`;
+          }
+        } catch (error) {
+          console.error('Error fetching or converting skin:', error);
+        }
+      } else { (acc.Type === 'microsoft')
+        document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/${authUser.uuid}')`
     }
   }
   user_text.innerHTML = username;
