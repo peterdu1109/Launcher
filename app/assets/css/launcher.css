@@ -3088,6 +3088,7 @@ input:checked+.toggleSwitchSlider:before {
     height: 120px;
     width: auto;
     position: relative;
+    z-index: 1;
 }
 
 /* Logo container styles. */
@@ -3097,6 +3098,18 @@ input:checked+.toggleSwitchSlider:before {
     width: 70px;
     border-radius: 50%;
     margin-top: 50px;
+    display: flex;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
 }
 
 /* Update available tooltip styles. */
