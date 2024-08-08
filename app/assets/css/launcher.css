@@ -1,4 +1,4 @@
-/* Github Code Highlighting. */
+﻿/* Github Code Highlighting. */
 @import "../../../node_modules/github-syntax-dark/lib/github-dark.css";
 
 /*******************************************************************************
@@ -538,11 +538,50 @@ button {
     color: #8b8b8b;
 }
 
-/* Logo on login form. */
-#loginImageSeal {
+#glitch_loginImageSeal {
     margin-right: 25vh;
     height: 300px;
     width: 300px;
+    background: url('../assets/images/SealCircle.png');
+    background-size: cover;
+    animation: float 4s ease-in-out infinite, glitch 3.5s infinite steps(1);
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Animação de glitch */
+@keyframes glitch {
+    0%, 100% {
+        background: url('../assets/images/SealCircle.png');
+        background-size: cover;
+    }
+
+    92.5% {
+        background: url('../assets/images/glitch-image-1.png');
+        background-size: cover;
+        opacity: 1;
+    }
+
+    95% {
+        background: url('../assets/images/glitch-image-2.png');
+        background-size: cover;
+        opacity: 0;
+    }
+
+    97.5% {
+        background: url('../assets/images/glitch-image-3.png');
+        background-size: cover;
+        opacity: 1;
+    }
 }
 
 /* Header on login view. */
@@ -3083,25 +3122,26 @@ input:checked+.toggleSwitchSlider:before {
 * Landing View (Top Styles) | Left Content
 * * */
 
-/* Logo image. */
-#image_seal {
-    height: 120px;
-    width: auto;
-    position: relative;
-    z-index: 1;
-}
-
-/* Logo container styles. */
 #image_seal_container {
     position: relative;
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+    height: 120px; /* Ajustado para a altura do selo */
+    width: 120px; /* Ajustado para a largura do selo */
     margin-top: 50px;
     display: flex;
-    animation: float 4s ease-in-out infinite;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Glitch image styles */
+#glitch_image_seal {
+    height: 120px;
+    width: 120px;
+    background: url('../images/SealCircle.png');
+    background-size: cover;
+    animation: float 4s ease-in-out infinite, glitch 4.5s infinite steps(1);
+}
+
+/* Animação de flutuação */
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -3112,6 +3152,31 @@ input:checked+.toggleSwitchSlider:before {
     }
 }
 
+/* Animação de glitch */
+@keyframes glitch {
+    0%, 100% {
+        background: url('../images/SealCircle.png');
+        background-size: cover;
+    }
+
+    92.5% {
+        background: url('../images/glitch-image-1.png');
+        background-size: cover;
+        opacity: 1;
+    }
+
+    95% {
+        background: url('../images/glitch-image-2.png');
+        background-size: cover;
+        opacity: 0;
+    }
+
+    97.5% {
+        background: url('../images/glitch-image-3.png');
+        background-size: cover;
+        opacity: 1;
+    }
+}
 /* Update available tooltip styles. */
 #updateAvailableTooltip {
     cursor: pointer;
@@ -3208,7 +3273,7 @@ input:checked+.toggleSwitchSlider:before {
     letter-spacing: 1px;
     text-shadow: 0px 0px 20px black;
     position: absolute;
-    bottom: -25px; /* Ajuste conforme necess�rio */
+    bottom: -25px; /* Ajuste conforme necessário */
     left: 50%; /* Posiciona o texto centralizado horizontalmente */
     transform: translateX(-50%); /* Ajuste para centralizar o texto */
     -webkit-user-select: initial;
