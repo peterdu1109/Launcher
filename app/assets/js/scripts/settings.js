@@ -630,7 +630,7 @@ const settingsCurrentMojangAccounts = document.getElementById('settingsCurrentMo
  */
 async function fetchSkinAndConvertToBase64(username) {
   try {
-    const skinURL = `https://auth.zelthoriaismp.cloud/skin/${username}.png`;
+    const skinURL = `https://auth.hastastudios.com.br/skin/${username}.png`;
     const response = await fetch(skinURL);
 
     if (!response.ok) {

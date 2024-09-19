@@ -43,7 +43,7 @@ async function reloadUsername() {
 
     if (acc && acc.type === 'mojang') {
         const gg = exports.getSelectedAccount();
-        let response = await fetch(`https://auth.zelthoriaismp.cloud/api/yggdrasil/sessionserver/session/minecraft/profile/${gg['uuid']}`);
+        let response = await fetch(`https://auth.hastastudios.com.br/api/yggdrasil/sessionserver/session/minecraft/profile/${gg['uuid']}`);
         response = await response.json();
         exports.addMojangAuthAccount(gg['uuid'], gg['accessToken'], response['name'], response['name']);
     }

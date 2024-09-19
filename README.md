@@ -1,13 +1,13 @@
 
-<img src="https://zelthoriaismp.cloud/Launcher/assets/logo.png" alt="Logo" width="450">
+<img src="https://hastastudios.com.br/Launcher/assets/logo.png" alt="Logo" width="450">
 
 # Hasta Studios Launcher
 
 A custom launcher for all Hasta Studios projects.
 
-![Launcher Screenshot](https://zelthoriaismp.cloud/launcher2.png)
+![Launcher Screenshot](https://hastastudios.com.br/launcher2.png)
 
-![Launcher Screenshot 2](https://zelthoriaismp.cloud/launcher1.png)
+![Launcher Screenshot 2](https://hastastudios.com.br/launcher1.png)
 
 ## Features
 
@@ -22,7 +22,7 @@ A custom launcher for all Hasta Studios projects.
 
 ## Usage
 
-1. Download the launcher from [here](https://hastastudios.zelthoriaismp.cloud).
+1. Download the launcher from [here](https://hastastudios.com.br/launcher).
 2. Install it on your system.
 3. Run the launcher and enjoy.
 
