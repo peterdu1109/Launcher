@@ -506,9 +506,9 @@ button {
 
 #loginForm {
     height: 70vh;
-    width: 350px;
-    background-color: #121212ad;
-    border-radius: 3%;
+    width: 390px;
+    background-color: #0e0e12;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -516,7 +516,7 @@ button {
 }
 
 #loginDiv {
-    margin: 10px;
+    margin: 10px;   
 }
 
 /* Login form anchor styles. */
@@ -597,6 +597,7 @@ button {
 /* Container to organize login field elements. */
 .loginFieldContainer {
     position: relative;
+    padding-right: initial;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -608,21 +609,25 @@ button {
     fill: #fff;
     height: 20px;
     width: 20px;
-    margin-bottom: 5px;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 10px;
+    border-radius: 5%;
 }
 
 /* Span which displays errors related to login field content. */
 .loginErrorSpan {
     font-family: 'Avenir Medium';
     font-weight: bold;
-    font-size: 8px;
-    color: #ff1b0c;
+    font-size: 10px;
+    color: #b9524b;
     width: 100%;
     text-align: right;
     position: absolute;
-    top: 7px;
+    top: 2px;
     opacity: 0;
     transition: 0.25s ease;
+    margin-left: -5px;
 }
 
 .shake {
@@ -655,14 +660,14 @@ button {
 
 /* Login text input styles. */
 .loginField {
-    background-color: #3b4148;
+    background-color: #2935434d;
     border-radius: 5px;
-    border: aliceblue;
+    border: #5888b5;
     color: #a9a9a9;
     margin-bottom: 1em;
-    padding: 0 16px;
+    padding: 0 40px;
     width: 235px;
-    height: 35px;
+    height: 35px;   
 }
 
 .loginField:focus {
@@ -712,11 +717,11 @@ button {
 
 /* Login button styles. */
 #loginButton {
-    background: #1ac386;
+    background: rgb(65 0 255);
     border: 0;
     width: 70%;
     height: 40px;
-    border-radius: 3px;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
@@ -1192,14 +1197,13 @@ button {
     position: relative;
     height: 100%;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: #0f0d21e8;
     transition: background-color 0.25s cubic-bezier(.02, .01, .47, 1);
 }
 
 /* Drop shadow displayed when content is scrolled out of view. */
 #settingsContainer:before {
     content: '';
-    background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
     width: 100%;
     height: 5px;
     position: absolute;
@@ -1214,16 +1218,23 @@ button {
 /* Left hand side of the settings UI, for navigation. */
 #settingsContainerLeft {
     padding-top: 4%;
-    height: 100%;
-    width: 25%;
+    height: 90%;
+    width: 18%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 0% 3%;
 }
 
 /* Settings navigation container. */
 #settingsNavContainer {
-    height: 100%;
+    height: 90%;
     display: flex;
+    background: #151126;
     flex-direction: column;
+    padding: 20px;
+    border-radius: 6px;
+    width: 75%; 
 }
 
 /* Navigation header styles. */
@@ -1231,6 +1242,8 @@ button {
     height: 15%;
     display: flex;
     justify-content: center;
+    font-weight: bold;
+    padding: 20px;
 }
 
 #settingsNavHeaderText {
@@ -1251,31 +1264,35 @@ button {
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
 }
 
 /* Navigation item shared styles. */
 .settingsNavItem {
-    background: none;
+    background: #1d1332;
     border: none;
-    text-align: left;
+    text-align: center;
     margin: 5px 0px;
-    padding: 0px 20px;
+    padding: 5px 20px;
     color: grey;
     cursor: pointer;
-    outline: none;
     transition: 0.25s ease;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 120%;
+    border: solid 1px #151126 ;
 }
 
 .settingsNavItem:hover,
 .settingsNavItem:focus {
-    color: #c1c1c1;
-    text-shadow: 0px 0px 20px #c1c1c1;
+border: solid 1px #2c1e4d;
 }
 
 .settingsNavItem[selected] {
-    cursor: default;
+    border: solid 1px #2c1e4d;
     color: white;
-    text-shadow: none;
+    background: none;
+=
 }
 
 /* Div to add some space between nav items. */
@@ -1285,12 +1302,11 @@ button {
 
 /* Content container for the done button. */
 #settingsNavContentBottom {
-    position: absolute;
-    top: 65%;
 }
 
 /* Settings navigational divider. */
 .settingsNavDivider {
+    display: none;
     width: 75%;
     height: 1px;
     background: rgba(126, 126, 126, 0.57);
@@ -1300,25 +1316,28 @@ button {
 
 /* Settings done button styles. */
 #settingsNavDone {
-    background: none;
+    background: #1d1332;
     border: none;
     text-align: left;
-    margin: 5px 0px;
-    padding: 0px 20px;
+    padding: 8px;
     color: white;
     cursor: pointer;
     outline: none;
     transition: 0.25s ease;
+    border-radius: 4px;
+    padding-right: 45px;
+    padding-left: 45px;
+    margin-top: 30%;
 }
 
 #settingsNavDone:hover,
 #settingsNavDone:focus {
-    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+    background: #2c1e4d;
 }
 
 #settingsNavDone:active {
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75);
-    color: rgba(255, 255, 255, 0.75);
+background: #2c1e4d;  
+color: rgba(255, 255, 255, 0.75);
 }
 
 #settingsNavDone:disabled {
@@ -1373,6 +1392,7 @@ button {
 .settingsTabHeaderText {
     font-size: 20px;
     font-family: 'Avenir Medium';
+    font-weight: bold;
 }
 
 .settingsTabHeaderDesc {
@@ -1381,9 +1401,10 @@ button {
 
 /* Selected server content container */
 .settingsSelServContainer {
-    background: rgba(0, 0, 0, 0.25);
-    width: 75%;
-    border-radius: 3px;
+    background: #151126;
+    padding: 5px;
+    width: 74%;
+    border-radius: 6px;
     display: flex;
     justify-content: space-between;
     margin: 15px 0px;
@@ -1407,8 +1428,8 @@ button {
 /* Button to switch server configurations on the mods tab. */
 .settingsSwitchServerButton {
     opacity: 0;
-    border: 1px solid rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+    border: 1px solid #2c1e4d;
+    color: #2c1e4d;
     background: none;
     font-size: 12px;
     border-radius: 3px;
@@ -1420,15 +1441,11 @@ button {
 
 .settingsSwitchServerButton:hover,
 .settingsSwitchServerButton:focus {
-    box-shadow: 0px 0px 20px rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.25);
+    background: #1d1332;
 }
 
 .settingsSwitchServerButton:active {
-    box-shadow: 0px 0px 20px rgb(187, 187, 187);
-    background: rgba(187, 187, 187, 0.25);
-    border: 1px solid rgb(187, 187, 187);
-    color: rgb(187, 187, 187);
+background: #1d1332;
 }
 
 .settingsSelServContainer:hover .settingsSwitchServerButton {
@@ -1445,8 +1462,8 @@ button {
 #settingsContainer input[type=text] {
     color: white;
     background: rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    border-radius: 5px;
+    border: 1px solid #2c1e4d;
     font-family: 'Avenir Book';
     transition: 0.25s ease;
 }
@@ -1468,9 +1485,11 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0px;
     width: 75%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+    background: #151126;
+    border-radius: 6px;
+    margin-top: 12px;
+    padding: 12px;
 }
 
 .settingsFieldLeft {
@@ -1517,10 +1536,9 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: #0f0c1a;
     transition: .4s;
     border-radius: 50px;
-    border: 1px solid rgba(126, 126, 126, 0.57);
 }
 
 .toggleSwitchSlider:before {
@@ -1537,9 +1555,7 @@ button {
 }
 
 input:checked+.toggleSwitchSlider {
-    background-color: rgb(31, 140, 11);
-    /* box-shadow: inset 2px 1px 20px black; */
-    border: 1px solid rgb(31, 140, 11);
+    background-color: #13103a;
 }
 
 input:checked+.toggleSwitchSlider:before {
@@ -1580,12 +1596,17 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main container for File selectors. */
 .settingsFileSelContainer {
+    width: 71%;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
     margin-bottom: 20px;
-    margin-top: 20px;
-    width: 75%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
+}
+#settingsFileSelContainer1 {
+    margin-top: 10px;
+    width: 75%
 }
 
 /* File selector title. */
@@ -1603,7 +1624,7 @@ input:checked+.toggleSwitchSlider:before {
 .settingsFileSelIcon {
     display: flex;
     align-items: center;
-    background: rgba(126, 126, 126, 0.57);
+    background: #2c1e4d;
     border-radius: 3px 0px 0px 3px;
     padding: 5px;
     transition: 0.25s ease;
@@ -1631,7 +1652,7 @@ input:checked+.toggleSwitchSlider:before {
     font-size: 12px;
     padding: 0px 5px;
     cursor: pointer;
-    background: rgba(126, 126, 126, 0.57);
+    background: #2c1e4d;
     transition: 0.25s ease;
     white-space: nowrap;
     outline: none;
@@ -1639,11 +1660,10 @@ input:checked+.toggleSwitchSlider:before {
 
 .settingsFileSelButton:hover,
 .settingsFileSelButton:focus {
-    text-shadow: 0px 0px 20px white;
+    background: #1d1332;
 }
 
 .settingsFileSelButton:active {
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -1667,16 +1687,17 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     width: 75%;
     flex-direction: column;
+    background: #151126;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .settingsAuthAccountTypeHeader {
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 0px;
-    border-bottom: 1px solid #ffffff85;
-    margin-bottom: 30px;
 }
 
 .settingsAuthAccountTypeHeaderLeft {
@@ -1686,19 +1707,23 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Settings add account button styles. */
 .settingsAddAuthAccount {
-    background: none;
+    background: #151126;
     border: none;
     text-align: left;
-    padding: 2px 0px;
+    padding: 8px;
     color: white;
     cursor: pointer;
     outline: none;
     transition: 0.25s ease;
+    border-radius: 4px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .settingsAddAuthAccount:hover,
 .settingsAddAuthAccount:focus {
-    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+    background: #13103a;
+    
 }
 
 .settingsAddAuthAccount:active {
@@ -1713,7 +1738,7 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Auth account list container styles. */
 .settingsCurrentAccounts {
-    margin-bottom: 5%;
+    margin-bottom: 3%
 }
 
 .settingsCurrentAccounts>.settingsAuthAccount:not(:last-child) {
@@ -1727,9 +1752,10 @@ input:checked+.toggleSwitchSlider:before {
 /* Auth account shared styles. */
 .settingsAuthAccount {
     display: flex;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    border: #2c1e4d;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
 }
 
 /* Left hand side of an auth account element, for the skin image. */
@@ -1799,6 +1825,9 @@ input:checked+.toggleSwitchSlider:before {
     outline: none;
     transition: 0.25s ease;
 }
+.settingsAuthAccountbtn {
+    text-align: center
+}
 
 .settingsAuthAccountSelect:hover:not([selected]),
 .settingsAuthAccountSelect:focus:not([selected]) {
@@ -1820,7 +1849,7 @@ input:checked+.toggleSwitchSlider:before {
     opacity: 0;
     border: 1px solid rgb(241, 55, 55);
     color: rgb(241, 55, 55);
-    background: none;
+    background: #151126;
     font-size: 12px;
     border-radius: 3px;
     font-family: 'Avenir Medium';
@@ -1831,15 +1860,12 @@ input:checked+.toggleSwitchSlider:before {
 
 .settingsAuthAccountLogOut:hover,
 .settingsAuthAccountLogOut:focus {
-    box-shadow: 0px 0px 20px rgb(241, 55, 55);
-    background: rgba(241, 55, 55, 0.25);
+    background: rgb(146, 12, 12);
 }
 
 .settingsAuthAccountLogOut:active {
-    box-shadow: 0px 0px 20px rgb(185, 47, 47);
     background: rgba(185, 47, 47, 0.25);
-    border: 1px solid rgb(185, 47, 47);
-    color: rgb(185, 47, 47);
+    color: rgb(146, 12, 12);
 }
 
 .settingsAuthAccount:hover .settingsAuthAccountLogOut {
@@ -1855,7 +1881,9 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+    border-radius: 6px;
+    padding: 12px;
+    background: #151126;
     width: 75%;
 }
 
@@ -1882,13 +1910,20 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main content container for the mod elements. */
 #settingsModsContainer {
-    width: 85%;
+    width: 71%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
 }
 
+#settingsModsInnerContainer {
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
+}
 /* Mod sub-container header text. */
 .settingsModsHeader {
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     margin-bottom: 10px;
 }
 
@@ -1904,9 +1939,11 @@ input:checked+.toggleSwitchSlider:before {
 #settingsOptModsContent,
 #settingsDropinModsContent {
     font-size: 12px;
-    background: rgba(0, 0, 0, 0.25);
     border-radius: 3px;
+    border-width: 1px;
     color: white;
+    border-style: solid;
+    border-color: #2c1e4d;
 }
 
 /* Mod elements. */
@@ -2060,8 +2097,8 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Button to add shaderpacks. */
 #settingsShaderpackButton {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    background: none;
+    border: 1px solid #2c1e4d;
     border-radius: 3px;
     cursor: pointer;
     outline: none;
@@ -2080,6 +2117,8 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main select container. */
 .settingsSelectContainer {
+    border-radius: 6px;
+    background: #151126;
     position: relative;
     width: 50%;
 }
@@ -2123,7 +2162,7 @@ input:checked+.toggleSwitchSlider:before {
     z-index: 99;
     max-height: 300%;
     overflow-y: scroll;
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    border: 1px solid #2c1e4d;
     border-top: none;
     border-radius: 0px 0px 3px 3px;
 }
@@ -2149,11 +2188,10 @@ input:checked+.toggleSwitchSlider:before {
 /* Shared styles between options and selection div. */
 .settingsSelectOptions div,
 .settingsSelectSelected {
-    background: rgba(0, 0, 0, 0.25);
     border-style: solid;
-    border-color: rgba(126, 126, 126, 0.57);
+    border-color: #2c1e4d;
     color: #ffffff;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .settingsSelectOptions div {
@@ -2169,7 +2207,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Hover + selected styles. */
 .settingsSelectOptions div:hover,
 .settingsSelectOptions div[selected] {
-    background-color: rgba(255, 255, 255, 0.25) !important;
+    background-color: #2c1e4d !important;
 }
 
 /* * *
@@ -2198,18 +2236,19 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main container for memory management. */
 #settingsMemoryContainer {
-    width: 75%;
+    width: 71%;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
     margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
 }
 
 /* Memory management title. */
 #settingsMemoryTitle {
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Memory management content. */
@@ -2297,7 +2336,13 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main container for the JVM options setting. */
 #settingsJVMOptsContainer {
-    width: 75%;
+    width: 71%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
 }
 
 /* JVM options title. */
@@ -2349,9 +2394,8 @@ input:checked+.toggleSwitchSlider:before {
 #settingsAboutCurrentContainer {
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: #151126;
+    border-radius: 6px;
     width: 75%;
     margin-bottom: 20px;
 }
@@ -2454,11 +2498,9 @@ input:checked+.toggleSwitchSlider:before {
 .settingsChangelogContainer {
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: #151126;
+    border-radius: 6px;
     width: 75%;
-    margin-bottom: 20px;
 }
 
 /* Changelog content container. */
@@ -2564,13 +2606,13 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main about content container. */
 #settingsUpdateStatusContainer {
+    margin-bottom: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: #151126;
+    border-radius: 6px;
     width: 75%;
-    margin-bottom: 20px;
 }
 
 /* Update content. */
@@ -2585,7 +2627,6 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgba(126, 126, 126, 0.57);
 }
 
 #settingsUpdateTitle {
@@ -2599,7 +2640,6 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     padding: 10px 0px;
-    border-bottom: 1px solid rgba(126, 126, 126, 0.57);
 }
 
 /* Checkmark next to the version information. */
@@ -2641,31 +2681,31 @@ input:checked+.toggleSwitchSlider:before {
     padding-top: 10px;
     font-size: 14px;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Update action button styles. */
 #settingsUpdateActionButton {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    background: none;
+    background: #1d1332;
     border: none;
-    font-size: 14px;
-    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    color: white;
     cursor: pointer;
     outline: none;
-    text-align: left;
     transition: 0.25s ease;
+    border-radius: 4px;
+    padding-right: 45px;
+    padding-left: 45px;
 }
 
 #settingsUpdateActionButton:hover,
 #settingsUpdateActionButton:focus {
-    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+    background: #2c1e4d;
 }
 
 #settingsUpdateActionButton:active {
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
-    color: #c7c7c7;
+background: #2c1e4d;
 }
 
 #settingsUpdateActionButton:disabled {
@@ -2693,13 +2733,25 @@ input:checked+.toggleSwitchSlider:before {
     top: 0px;
     height: 77%;
     display: flex;
+    z-index: 1;
+    justify-content: space-between;
 }
 
 #landingContainer>#upper>#left {
-    display: inline-flex;
-    width: 15%;
-    height: 100%;
-    justify-content: flex-end;
+width: 5%;
+    height: 126%;
+    border: solid #2c1e4d;
+    border-width: 2px;
+    border-left: 20px;
+    border-bottom: 20px;
+    border-top: 20px;
+    background: #151126;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #landingContainer>#upper>#content {
@@ -2709,9 +2761,8 @@ input:checked+.toggleSwitchSlider:before {
 }
 
 #landingContainer>#upper>#right {
-    display: inline-flex;
-    width: 15%;
     height: 100%;
+    padding: 20px;
 }
 
 /* Lower content container. */
@@ -3124,21 +3175,22 @@ input:checked+.toggleSwitchSlider:before {
 
 #image_seal_container {
     position: relative;
-    height: 120px; /* Ajustado para a altura do selo */
-    width: 120px; /* Ajustado para a largura do selo */
+    height: 94px; /* Ajustado para a altura do selo */
+    width: 94px; /* Ajustado para a largura do selo */
     margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 /* Glitch image styles */
 #glitch_image_seal {
-    height: 120px;
-    width: 120px;
+    height: 56px;
+    width: 56px;
     background: url('../images/SealCircle.png');
     background-size: cover;
-    animation: float 4s ease-in-out infinite, glitch 4.5s infinite steps(1);
+    animation: float 4s ease-in-out infinite;
 }
 
 /* Animação de flutuação */
@@ -3220,65 +3272,34 @@ input:checked+.toggleSwitchSlider:before {
     justify-content: center;
     box-sizing: border-box;
     position: relative;
+    background: #1d1332;
+    border: solid 1px #2c1e4d;
+    border-radius: 6px;
+    padding: 0.1px;
+    margin-bottom: 30%;
+}
+
+#user_content:hover,
+#user_content:focus,
+#user_content:active {
+    background: none;
 }
 
 /* User profile avatar container. */
 /* Avatar container */
 #avatarContainer {
     box-sizing: border-box;
-    background: rgba(1, 2, 1, 0.5);
-    height: 60px;
-    width: 60px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+    height: 45px;
+    width: 45px;
     overflow: hidden;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+
 }
 
-/* Avatar overlay */
-#avatarOverlay {
-    opacity: 0;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.25s ease;
-    font-weight: bold;
-    letter-spacing: 2px;
-    background-color: rgba(0, 0, 0, 0.00);
-    -webkit-user-select: none;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
-    #avatarOverlay:hover,
-    #avatarOverlay:focus {
-        opacity: 1;
-    }
-
-    #avatarOverlay:active {
-        background-color: rgba(0, 0, 0, 0.00);
-    }
-
-/* User profile name text */
-#user_text {
-    font-size: 12px;
-    min-width: 135px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-shadow: 0px 0px 20px black;
-    position: absolute;
-    bottom: -25px; /* Ajuste conforme necessário */
-    left: 50%; /* Posiciona o texto centralizado horizontalmente */
-    transform: translateX(-50%); /* Ajuste para centralizar o texto */
-    -webkit-user-select: initial;
-    text-align: center;
-}
 
 /* Social media icon content container. */
 #mediaContent {
@@ -3352,28 +3373,27 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Internal media button shared styles. */
 .mediaButton {
-    background: none;
-    border: none;
-    padding: 0px;
+    padding: 10px;
+    font-size: 25px;
+    color: rebeccapurple;
     display: flex;
     align-items: center;
     outline: none;
+    background: #1d1332;
+    border: 1px solid #2c1e4d;
+    border-radius: 6px;
+    margin-bottom: 30%
 }
 
 #settingsMediaContainer {
     position: relative;
 }
 
-/* Settings icon colors. */
-#settingsSVG {
-    stroke: #ffffff;
-    height: 15px;
-}
 
-.mediaButton:hover #settingsSVG,
-.mediaButton:focus #settingsSVG,
-.mediaButton:active #settingsSVG {
-    height: 23px;
+.mediaButton:hover,
+.mediaButton:focus,
+.mediaButton:active {
+ background: none;
 }
 
 /* Settings tooltip styles. */
@@ -3979,7 +3999,10 @@ input:checked+.toggleSwitchSlider:before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 75%;
+    height: 55%;
+    background: #0f0d21e8;
+    padding: 20px;
+    border-radius: 6px;
 }
 
 /* Server selection header. */
@@ -4028,8 +4051,7 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Content container for a server listing. */
 .serverListing {
-    border: none;
-    padding: 0px;
+    padding: 8px;
     width: 375px;
     min-height: 60px;
     display: flex;
@@ -4038,8 +4060,12 @@ input:checked+.toggleSwitchSlider:before {
     opacity: 0.6;
     transition: 0.25s ease;
     cursor: pointer;
+    border-color: #2c1e4d;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    background: none;
     position: relative;
-    background: rgba(131, 131, 131, 0.25);
 }
 
 .serverListing[selected] {
@@ -4106,9 +4132,8 @@ input:checked+.toggleSwitchSlider:before {
 /* Server listing image. */
 .serverListingImg {
     margin: 0px 10px 0px 5px;
-    border: 1px solid #fff;
     height: 50px;
-    width: 50px;
+    width: 50px;    
 }
 
 /* Content container for the server listing's details. */
@@ -4217,25 +4242,26 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Server selection confirm button styles. */
 #serverSelectConfirm,
-#accountSelectConfirm {
-    background: none;
-    border: 1px solid #ffffff;
+#accountSelectConfirm,
+#accountSelectManage {
+    background: #151126;
+    border: none;
+    text-align: left;
+    padding: 8px;
     color: white;
-    font-family: 'Avenir Medium';
-    font-weight: bold;
-    border-radius: 2px;
-    padding: 0px 8.1px;
     cursor: pointer;
+    outline: none;
     transition: 0.25s ease;
-    min-height: 20.67px;
+    border-radius: 4px;
+    padding-right: 45px;
+    padding-left: 45px;
 }
 
 #serverSelectConfirm:hover,
 #serverSelectConfirm:focus,
 #accountSelectConfirm:hover,
 #accountSelectConfirm:focus {
-    box-shadow: 0px 0px 10px 0px #fff;
-    outline: none;
+    background: #150F2E;
 }
 
 #serverSelectConfirm:active,

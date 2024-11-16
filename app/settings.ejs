@@ -6,14 +6,28 @@
             </div>
             <div id="settingsNavItemsContainer">
                 <div id="settingsNavItemsContent">
-                    <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected><%- lang('settings.navAccount') %></button>
-                    <button class="settingsNavItem" rSc="settingsTabMinecraft"><%- lang('settings.navMinecraft') %></button>
-                    <button class="settingsNavItem" rSc="settingsTabMods"><%- lang('settings.navMods') %></button>
-                    <button class="settingsNavItem" rSc="settingsTabJava"><%- lang('settings.navJava') %></button>
-                    <button class="settingsNavItem" rSc="settingsTabLauncher"><%- lang('settings.navLauncher') %></button>
-                    <div class="settingsNavSpacer"></div>
-                    <button class="settingsNavItem" rSc="settingsTabAbout"><%- lang('settings.navAbout') %></button>
-                    <button class="settingsNavItem" rSc="settingsTabUpdate" id="settingsNavUpdate"><%- lang('settings.navUpdates') %></button>
+                        <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected>
+                          <i class="fas fa-user"></i> <%- lang('settings.navAccount') %>
+                        </button>
+                        <button class="settingsNavItem" rSc="settingsTabMinecraft">
+							<i class="fa-solid fa-cube"></i> <%- lang('settings.navMinecraft') %>
+                        </button>
+                        <button class="settingsNavItem" rSc="settingsTabMods">
+                          <i class="fas fa-cogs"></i> <%- lang('settings.navMods') %>
+                        </button>
+                        <button class="settingsNavItem" rSc="settingsTabJava">
+                          <i class="fab fa-java"></i> <%- lang('settings.navJava') %>
+                        </button>
+                        <button class="settingsNavItem" rSc="settingsTabLauncher">
+                          <i class="fas fa-play-circle"></i> <%- lang('settings.navLauncher') %>
+                        </button>
+                        <div class="settingsNavSpacer"></div>
+                        <button class="settingsNavItem" rSc="settingsTabAbout">
+                          <i class="fas fa-info-circle"></i> <%- lang('settings.navAbout') %>
+                        </button>
+                        <button class="settingsNavItem" rSc="settingsTabUpdate" id="settingsNavUpdate">
+                          <i class="fas fa-sync-alt"></i> <%- lang('settings.navUpdates') %>
+                        </button>
                     <div id="settingsNavContentBottom">
                         <div class="settingsNavDivider"></div>
                         <button id="settingsNavDone"><%- lang('settings.navDone') %></button>
@@ -27,27 +41,7 @@
             <div class="settingsTabHeader">
                 <span class="settingsTabHeaderText"><%- lang('settings.tabAccountHeaderText') %></span>
                 <span class="settingsTabHeaderDesc"><%- lang('settings.tabAccountHeaderDesc') %></span>
-            </div>
-            <div class="settingsAuthAccountTypeContainer">
-                <div class="settingsAuthAccountTypeHeader">
-                    <div class="settingsAuthAccountTypeHeaderLeft">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 23 23">
-                            <path fill="#f35325" d="M1 1h10v10H1z" />
-                            <path fill="#81bc06" d="M12 1h10v10H12z" />
-                            <path fill="#05a6f0" d="M1 12h10v10H1z" />
-                            <path fill="#ffba08" d="M12 12h10v10H12z" />
-                        </svg>
-                        <span><%- lang('settings.microsoftAccount') %></span>
-                    </div>
-                    <div class="settingsAuthAccountTypeHeaderRight">
-                        <button class="settingsAddAuthAccount" id="settingsAddMicrosoftAccount"><%- lang('settings.addMicrosoftAccount') %></button>
-                    </div>
-                </div>
-                
-                <div class="settingsCurrentAccounts" id="settingsCurrentMicrosoftAccounts">
-                    <!-- Microsoft auth accounts populated here. -->
-                </div>
-            </div>
+            </div>                
 
             <div class="settingsAuthAccountTypeContainer">
                 <div class="settingsAuthAccountTypeHeader">
@@ -61,14 +55,15 @@
 						</svg>
                         <span><%- lang('settings.mojangAccount') %></span>
                     </div>
-                    <div class="settingsAuthAccountTypeHeaderRight">
-                        <button class="settingsAddAuthAccount" id="settingsAddMojangAccount"><%- lang('settings.addMojangAccount') %></button>
-                    </div>
                 </div>
                 
                 <div class="settingsCurrentAccounts" id="settingsCurrentMojangAccounts">
                     <!-- Mojang auth accounts populated here. -->
                 </div>
+				                    <div class="settingsAuthAccountbtn">
+                        <button class="settingsAddAuthAccount" id="settingsAddMojangAccount">
+							<i class="fas fa-plus"></i><%- lang('settings.addMojangAccount') %></button>
+                    </div>
             </div>
         </div>
         <div id="settingsTabMinecraft" class="settingsTab" style="display: none;">
@@ -141,31 +136,35 @@
                 </div>
                 <div class="settingsSwitchServerContainer">
                     <div class="settingsSwitchServerContent">
-                        <button class="settingsSwitchServerButton"><%- lang('settings.switchServerButton') %></button>
+                        <button class="settingsSwitchServerButton">
+							<span>
+								<i class="fa-solid fa-repeat"></i>
+							</span>
+						</button>
                     </div>
                 </div>
             </div>
             <div id="settingsModsContainer">
-                <div id="settingsModsContainer">
+                <div id="settingsModsInnerContainer">
                     <div class="settingsModsHeader"><%- lang('settings.optionalMods') %></div>
                     <div id="settingsOptModsContent">
 
                     </div>
                 </div>
-                <div id="settingsModsContainer">
+                <div id="settingsModsInnerContainer">
                     <div class="settingsModsHeader"><%- lang('settings.requiredMods') %></div>
                     <div id="settingsReqModsContent">
                         
                     </div>
                 </div>
-                <div id="settingsDropinModsContainer" style="display: none;">
+                <div id="settingsDropinModsInnerContainer" style="display: none;">
                     <div class="settingsModsHeader"><%- lang('settings.dropinMods') %></div>
                     <button id="settingsDropinFileSystemButton"><%- lang('settings.addMods') %> <span id="settingsDropinRefreshNote"><%- lang('settings.dropinRefreshNote') %></span></button>
                     <div id="settingsDropinModsContent">
                         
                     </div>
                 </div>
-                <div id="settingsShadersContainer" style="display: none;">
+                <div id="settingsModsInnerContainer">
                     <div class="settingsModsHeader"><%- lang('settings.shaderpacks') %></div>
                     <div id="settingsShaderpackDesc"><%- lang('settings.shaderpackDesc') %></div>
                     <div id="settingsShaderpackWrapper">
@@ -191,7 +190,11 @@
                 </div>
                 <div class="settingsSwitchServerContainer">
                     <div class="settingsSwitchServerContent">
-                        <button class="settingsSwitchServerButton"><%- lang('settings.switchServerButton') %></button>
+						<button class="settingsSwitchServerButton">
+							<span>
+								<i class="fa-solid fa-repeat"></i>
+							</span>
+						</button>
                     </div>
                 </div>
             </div>
@@ -311,7 +314,7 @@
                     </label>
                 </div>
             </div>
-            <div class="settingsFileSelContainer">
+            <div class="settingsFileSelContainer" id="settingsFileSelContainer1">
                 <div class="settingsFileSelContent">
                     <div class="settingsFieldTitle" id="settingsDataDirTitle"><%- lang('settings.dataDirectoryTitle') %></div>
                     <div class="settingsFileSelActions">
@@ -414,5 +417,7 @@
             </div>
         </div>
     </div>
-    <script src="./assets/js/scripts/settings.js"></script>
+	<script src="https://kit.fontawesome.com/4f9bd13cb8.js" crossorigin="anonymous"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<script src="./assets/js/scripts/settings.js"></script>
 </div>
