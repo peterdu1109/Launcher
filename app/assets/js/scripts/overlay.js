@@ -87,6 +87,7 @@ function toggleOverlay(toggleState, dismissable = false, content = 'overlayConte
         overlayContainer.setAttribute('content', content)
         overlayContainer.setAttribute('popup', popup)
 
+
         // Make things untabbable.
         $('#main *').attr('tabindex', '-1')
         $('#' + content).parent().children().hide()
@@ -100,7 +101,7 @@ function toggleOverlay(toggleState, dismissable = false, content = 'overlayConte
             duration: 250,
             start: () => {
                 if(getCurrentView() === VIEWS.settings){
-                    document.getElementById('settingsContainer').style.backgroundColor = 'transparent'
+                    document.getElementById('settingsContainer').style.backgroundColor = '#0f0d21e8'
                 }
             }
         })
@@ -108,13 +109,14 @@ function toggleOverlay(toggleState, dismissable = false, content = 'overlayConte
         document.getElementById('main').removeAttribute('overlay')
         overlayContainer.removeAttribute('content')
 
+
         // Make things tabbable.
         $('#main *').removeAttr('tabindex')
         $('#overlayContainer').fadeOut({
             duration: 250,
             start: () => {
                 if(getCurrentView() === VIEWS.settings){
-                    document.getElementById('settingsContainer').style.backgroundColor = 'rgba(0, 0, 0, 0.50)'
+                    document.getElementById('settingsContainer').style.backgroundColor = '#0f0d21e8'
                 }
             },
             complete: () => {
@@ -147,6 +149,22 @@ async function toggleAccountSelection(toggleState, popup = false){
     // show the overlay
     await prepareAccountSelectionList()
     toggleOverlay(toggleState, false, 'accountSelectContent', popup)
+}
+
+async function toggleAccountSelection(toggleState, popup = false){    
+    if (popup) {
+        // set the popup=true attribute to the accountSelectContent div and set the accountSelectActions div to display: none to avoid colliding with the validateSelectedAccount function
+        accountSelectContent.setAttribute('popup', 'true')
+        document.getElementById('accountSelectActions').style.display = 'none'
+    } else {
+        // remove the popup attribute and set the accountSelectActions div to display: block, this is not done while closing the overlay because of the fadeOut effect
+        accountSelectContent.removeAttribute('popup')
+        document.getElementById('accountSelectActions').style.display = 'block'
+    }
+
+    // show the overlay
+    await prepareAccountSelectionList()
+    toggleOverlay(toggleState, true, 'accountSelectContent')
 }
 
 /**

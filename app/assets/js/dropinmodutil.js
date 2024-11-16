@@ -12,7 +12,7 @@ const DISABLED_EXT = '.disabled'
 const SHADER_REGEX = /^(.+)\.zip$/
 const SHADER_OPTION = /shaderPack=(.+)/
 const SHADER_DIR = 'shaderpacks'
-const SHADER_CONFIG = 'optionsshaders.txt'
+const SHADER_CONFIG = 'config/oculus.properties'
 
 /**
  * Validate that the given directory exists. If not, it is
