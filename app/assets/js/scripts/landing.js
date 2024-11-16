@@ -134,13 +134,6 @@ document.getElementById('settingsMediaButton').onclick = async e => {
 }
 
 // Bind avatar overlay button.
-document.getElementById('avatarOverlay').onclick = async e => {
-    await prepareSettings()
-    switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
-        settingsNavItemListener(document.getElementById('settingsNavAccount'), false)
-    })
-}
-
 // Bind selected account
 async function fetchSkinAndConvertToBase64(username) {
   try {
@@ -197,10 +190,8 @@ async function updateSelectedAccount(authUser) {
         document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/${authUser.uuid}')`
     }
   }
-  user_text.innerHTML = username;
+    user_text.innerHTML = username
 }
-
-// Call the function with the selected account
 updateSelectedAccount(ConfigManager.getSelectedAccount());
 
 // Bind selected server
@@ -223,6 +214,11 @@ server_selection_button.onclick = async e => {
     await toggleServerSelection(true)
 }
 
+// Bind avatar overlay button.
+document.getElementById('avatarOverlay').onclick = async e => {
+    e.target.blur()
+    await toggleAccountSelection(true, true)
+}
 
 const refreshServerStatus = async (fade = false) => {
     loggerLanding.info('Refreshing Server Status')
@@ -253,6 +249,23 @@ const refreshServerStatus = async (fade = false) => {
         document.getElementById('player_count').innerHTML = pVal
     }
     
+}
+
+/**
+ * Shows an error overlay, toggles off the launch area.
+ * 
+ * @param {string} title The overlay title.
+ * @param {string} desc The overlay description.
+ */
+function showLaunchFailure(title, desc){
+    setOverlayContent(
+        title,
+        desc,
+        Lang.queryJS('landing.launch.okay')
+    )
+    setOverlayHandler(null)
+    toggleOverlay(true)
+    toggleLaunchArea(false)
 }
 
 /* System (Java) Scan */
