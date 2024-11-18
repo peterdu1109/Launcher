@@ -259,11 +259,10 @@ function createWindow() {
     win.removeMenu();
     win.resizable = true;
 
-    // Adiciona o evento para travar a proporção 16:9
     win.on('will-resize', (event, newBounds) => {
         const width = newBounds.width;
         const height = Math.round(width / (16 / 9));
-        event.preventDefault(); // Impede o comportamento padrão de redimensionamento
+        event.preventDefault(); 
         win.setBounds({
             x: newBounds.x,
             y: newBounds.y,

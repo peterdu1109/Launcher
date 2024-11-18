@@ -18,6 +18,7 @@ const VIEWS = {
     landing: '#landingContainer',
     loginOptions: '#loginOptionsContainer',
     login: '#loginContainer',
+    status: '#creators-container',
     settings: '#settingsContainer',
     welcome: '#welcomeContainer',
     waiting: '#waitingContainer'
@@ -57,6 +58,20 @@ function getCurrentView(){
     return currentView
 }
 
+/* select radom background video */
+document.addEventListener('DOMContentLoaded', () => {
+    const randomVideo = Math.floor(Math.random() * 5) + 1;
+    const videoUrl = `https://hastastudios.com.br/videos/${randomVideo}.mp4`;
+    const videoElement = document.getElementById('background-video');
+    const sourceElement = videoElement.querySelector('source');
+    if (videoElement && sourceElement) {
+        sourceElement.src = videoUrl;
+        videoElement.load();
+    } else {
+        console.error("Elemento de vídeo ou fonte não encontrado.");
+    }
+});
+
 async function showMainUI(data){
 
     if(!isDev){
@@ -68,7 +83,6 @@ async function showMainUI(data){
     updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
     refreshServerStatus()
     setTimeout(() => {
-        document.body.style.backgroundImage = `url('assets/images/backgrounds/${document.body.getAttribute('bkid')}.jpg')`
        // document.getElementById('frameBar').style.backgroundColor = 'rgb(5, 8, 13)'
         $('#main').show()
 

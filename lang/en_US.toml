@@ -42,11 +42,10 @@ cancelButton = "Cancel"
 
 [ejs.overlay]
 serverSelectHeader = "Hasta Studios Servers"
-serverSelectConfirm = "Select"
-serverSelectCancel = "Cancel"
 accountSelectHeader = "Select an Account"
 accountSelectConfirm = "Select"
 accountSelectCancel = "Cancel"
+accountSelectManage = "Manage Accounts"
 
 [ejs.settings]
 navHeaderText = "Settings"
@@ -123,6 +122,11 @@ launcherUpdatesHeaderDesc = "Download, install, and review updates for the launc
 checkForUpdates = "Check for Updates"
 whatsNew = "What's New"
 updateReleaseNotes = "Update Release Notes"
+
+[ejs.status]
+noCreators = "Can't find any streamers"
+confirm = "Close"
+viewChannel = "View Channel"
 
 [ejs.waiting]
 waitingText = "Waiting for Microsoft.."

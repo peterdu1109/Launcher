@@ -133,6 +133,11 @@ document.getElementById('settingsMediaButton').onclick = async e => {
     switchView(getCurrentView(), VIEWS.settings)
 }
 
+// Bind settings button
+document.getElementById('CreatorsMediaButton').onclick = async e => {
+    switchView(getCurrentView(), VIEWS.status)
+}
+
 // Bind selected account
 async function fetchSkinAndConvertToBase64(username) {
   try {
@@ -140,11 +145,10 @@ async function fetchSkinAndConvertToBase64(username) {
     const response = await fetch(skinURL);
 
     if (!response.ok) {
-      throw new Error('Error fetching skin image: ' + response.status);
+      return 'MHF_Question';
     }
 
     const blob = await response.blob();
-
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -160,36 +164,29 @@ async function fetchSkinAndConvertToBase64(username) {
 
 async function updateSelectedAccount(authUser) {
   let username = Lang.queryJS('landing.selectedAccount.noAccountSelected');
-  const authAccounts = ConfigManager.getSelectedAccount()
+  const authAccounts = ConfigManager.getSelectedAccount();
+
   if (authUser != null) {
-    const acc = authAccounts
+    const acc = authAccounts;
+
     if (authUser.displayName != null) {
       username = authUser.displayName;
     }
 
-    if (authUser.uuid != null) {
-      try {
-        const base64modifier = await fetchSkinAndConvertToBase64(authUser.displayName);
-        if (base64modifier !== 'MHF_Question') {
-          document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/head/256/${authUser.uuid}?no=shadow&p=15&y=55')`;
-        }
-      } catch (error) {
-        console.error('Error fetching or converting skin:', error);
+    if (acc.type === 'mojang' && authUser.uuid != null) {
+      const base64modifier = await fetchSkinAndConvertToBase64(authUser.displayName);
+
+      if (base64modifier !== 'MHF_Question') {
+        document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/${base64modifier}?no=shadow&p=15&y=55')`;
+      } else {
+        document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/face/256/MHF_Question?no=shadow&p=15&y=55')`;
       }
-    } if (acc.type === 'mojang') {
-        try {
-          const base64modifier = await fetchSkinAndConvertToBase64(authUser.displayName);
-           document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/head/${encodeURIComponent(base64modifier)}?no=shadow&p=15&y=55'`;
-        } catch (error) {
-          console.error('Error fetching or converting skin:', error);
-        }
-      } else { (acc.Type === 'microsoft')
-        document.getElementById('avatarContainer').style.backgroundImage = `url('https://visage.surgeplay.com/head/256/${authUser.uuid}?no=shadow&p=15&y=55')`
     }
   }
-    user_text.innerHTML = username
 }
+
 updateSelectedAccount(ConfigManager.getSelectedAccount());
+;
 
 // Bind selected server
 function updateSelectedServer(serv){
@@ -212,7 +209,7 @@ server_selection_button.onclick = async e => {
 }
 
 // Bind avatar overlay button.
-document.getElementById('user_text').onclick = async e => {
+document.getElementById('user_content').onclick = async e => {
     e.target.blur()
     await toggleAccountSelection(true, true)
 }

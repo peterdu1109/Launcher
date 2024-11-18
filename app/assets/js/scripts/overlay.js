@@ -347,18 +347,57 @@ async function populateServerListings(){
 
 }
 
-function populateAccountListings(){
-    const accountsObj = ConfigManager.getAuthAccounts()
-    const accounts = Array.from(Object.keys(accountsObj), v=>accountsObj[v])
-    let htmlString = ''
-    for(let i=0; i<accounts.length; i++){
-        htmlString += `<button class="accountListing" uuid="${accounts[i].uuid}" ${!i && !overlayContainer.hasAttribute("popup") ? 'selected' : ''}>
-            <img src="https://mc-heads.net/head/${accounts[i].uuid}/40">
-            <div class="accountListingName">${accounts[i].displayName}</div>
-        </button>`
-    }
-    document.getElementById('accountSelectListScrollable').innerHTML = htmlString
+async function fetchSkinAndConvertToBase64(username) {
+  try {
+    const skinURL = `https://auth.hastastudios.com.br/skin/${username}.png`;
+    const response = await fetch(skinURL);
 
+    if (!response.ok) {
+      return 'MHF_Question';
+    }
+
+    const blob = await response.blob();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result.split(',')[1]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    return 'MHF_Question'; 
+  }
+}
+
+async function populateAccountListings() {
+  const accountsObj = ConfigManager.getAuthAccounts();
+  const accounts = Array.from(Object.keys(accountsObj), v => accountsObj[v]);
+  let htmlString = '';
+
+  for (let i = 0; i < accounts.length; i++) {
+    const account = accounts[i];
+    const username = account.displayName;
+
+    if (account.type === 'mojang' && account.uuid) {
+      const base64modifier = await fetchSkinAndConvertToBase64(username);
+
+      if (base64modifier !== 'MHF_Question') {
+        avatarURL = `https://visage.surgeplay.com/face/256/${base64modifier}?no=shadow&p=15&y=55`;
+      } else {
+        avatarURL = `https://visage.surgeplay.com/face/256/MHF_Question?no=shadow&p=15&y=55`;
+      }
+    }
+
+    htmlString += `
+      <button class="accountListing" uuid="${account.uuid}" ${!i && !overlayContainer.hasAttribute("popup") ? 'selected' : ''}>
+        <img src="${avatarURL}" style= "width: 32px; height: 32px; border-radius: 6px;">
+        <div class="accountListingName">${account.displayName}</div>
+      </button>
+    `;
+  }
+
+  document.getElementById('accountSelectListScrollable').innerHTML = htmlString;
 }
 
 async function prepareServerSelectionList(){
