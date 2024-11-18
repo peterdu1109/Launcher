@@ -238,7 +238,7 @@ function createWindow() {
             preload: path.join(__dirname, 'app', 'assets', 'js', 'preloader.js'),
             nodeIntegration: true,
             contextIsolation: false,
-            backgroundThrottling: false // Desabilita o throttling (redução de desempenho) quando a janela perde o foco
+            backgroundThrottling: false
         },
         backgroundColor: '#000000'
     });
