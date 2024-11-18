@@ -2816,12 +2816,18 @@ width: 5%;
     display: inline-flex;
 }
 
+#top-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%; 
+}
 /*******************************************************************************
  *                                                                             *
  * Landing View (News Styles)                                                  *
  *                                                                             *
  ******************************************************************************/
-
 /* Main container. */
 #newsContainer {
     position: absolute;
@@ -4047,6 +4053,10 @@ width: 5%;
     opacity: 0;
     transition: background-color 0.3s ease;
     margin-top: auto;
+}
+
+a {
+    color: inherit;
 }
 
 /* Close button */
