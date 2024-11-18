@@ -4554,7 +4554,7 @@ a {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100% - 22px);
+    height: 100%;
 }
 
 /* Loading content container. */

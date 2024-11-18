@@ -111,12 +111,12 @@ async function showMainUI(data){
         }
 
         setTimeout(() => {
-            $('#loadingContainer').fadeOut(500, () => {
+            $('#loadingContainer, #loadSpinnerImage').fadeOut(800, () => {
                 $('#loadSpinnerImage').removeClass('rotating')
             })
-        }, 250)
+        }, 800)
         
-    }, 750)
+    }, 1200)
     // Disable tabbing to the news container.
     initNews().then(() => {
         $('#newsContainer *').attr('tabindex', '-1')
