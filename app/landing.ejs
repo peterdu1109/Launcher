@@ -31,8 +31,6 @@
 
 			</div>
 			</div>
-        <div id="content">
-        </div>
         <div id="right">
 			<%if (process.platform =""== 'darwin') { %>
 				<div id="frameButtonDockDarwin">
@@ -59,17 +57,6 @@
     <div id="lower">
         <div id="left">
             <div class="bot_wrapper">
-                <div id="content">
-                    <div id="server_status_wrapper">
-                        <span class="bot_label" id="landingPlayerLabel"><%- lang('landing.serverStatus') %></span>
-                        <span id="player_count"><%- lang('landing.serverStatusPlaceholder') %></span>
-                    </div>
-                    <div class="bot_divider"></div>
-                    <div id="mojangStatusWrapper">
-                        <span class="bot_label"><%- lang('landing.mojangStatus') %></span>
-                        <span id="mojang_status_icon">&#8226;</span>
-                    </div>
-                </div>
             </div>
         </div>
         <div id="center">
@@ -90,11 +77,17 @@
             </div>
         </div>
         <div id="right">
-            <div class="bot_wrapper">
+            <div class="bot_wrapper" style="width: 100%;">
+				                    <div id="_status_wrapper">	
+                        <span id="player_count"><%- lang('landing.serverStatusPlaceholder') %></span>
+                    </div>
                 <div id="launch_content">
-                    <button id="launch_button"><%- lang('landing.launchButton') %></button>
-                    <div class="bot_divider"></div>
-                    <button id="server_selection_button" class="bot_label"><%- lang('landing.launchButtonPlaceholder') %></button>
+                    <button id="launch_button">
+						<i class="fa-solid fa-circle-play" style="font-size: 14px; margin-right: 2px;"></i><%- lang('landing.launchButton') %></button>
+					<div id="server_selection_button_warper">
+                    <button id="server_selection_button" <%- lang('landing.launchButtonPlaceholder') %></button>
+					</div>
+
                 </div>
                 <div id="launch_details">
                     <div id="launch_details_left">

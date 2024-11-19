@@ -188,24 +188,65 @@ async function updateSelectedAccount(authUser) {
 updateSelectedAccount(ConfigManager.getSelectedAccount());
 ;
 
-// Bind selected server
-function updateSelectedServer(serv){
-    if(getCurrentView() === VIEWS.settings){
-        fullSettingsSave()
+function updateSelectedServer(serv) {
+    if (getCurrentView() === VIEWS.settings) {
+        fullSettingsSave();
     }
-    ConfigManager.setSelectedServer(serv != null ? serv.rawServer.id : null)
-    ConfigManager.save()
-    server_selection_button.innerHTML = '&#8226; ' + (serv != null ? serv.rawServer.name : Lang.queryJS('landing.noSelection'))
-    if(getCurrentView() === VIEWS.settings){
-        animateSettingsTabRefresh()
+
+    ConfigManager.setSelectedServer(serv != null ? serv.rawServer.id : null);
+    ConfigManager.save();
+
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="small-white-svg">
+            <path d="M64 32C28.7 32 0 60.7 0 96l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 32zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm48 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM64 288c-35.3 0-64 28.7-64 64l0 64c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-64c0-35.3-28.7-64-64-64L64 288zm280 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm56 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/>
+        </svg>
+    `;
+    
+    const button = server_selection_button;
+    button.innerHTML = `
+        ${svg} 
+        ${serv != null ? serv.rawServer.name : Lang.queryJS('landing.noSelection')}
+    `;
+
+    button.onclick = async (e) => {
+        e.target.blur();
+        await toggleServerSelection(true);
+    };
+
+    const serverTitleElement = document.getElementById("server-title");
+    if (serverTitleElement) {
+        serverTitleElement.innerHTML = serv != null ? `<span>${serv.rawServer.name}</span>` : `<span>${Lang.queryJS('landing.noSelection')}</span>`;
+    } else {
+        const titleContainer = document.createElement('div');
+        titleContainer.id = "server-title";
+        titleContainer.innerHTML = serv != null ? `<span>${serv.rawServer.name}</span>` : `<span>${Lang.queryJS('landing.noSelection')}</span>`;
+        
+        const parentContainer = button.parentElement;
+        parentContainer.insertBefore(titleContainer, button);
     }
-    setLaunchEnabled(serv != null)
-}
-// Real text is set in uibinder.js on distributionIndexDone.
-server_selection_button.innerHTML = '&#8226; ' + Lang.queryJS('landing.selectedServer.loading')
-server_selection_button.onclick = async e => {
-    e.target.blur()
-    await toggleServerSelection(true)
+
+    const botWrapper = document.querySelector(".bot_wrapper");
+    if (botWrapper) {
+        const existingIcon = botWrapper.querySelector('.server-icon');
+        if (existingIcon) {
+            existingIcon.remove();
+        }
+
+        if (serv != null && serv.rawServer.icon) {
+            const serverIcon = document.createElement('img');
+            serverIcon.src = serv.rawServer.icon;
+            serverIcon.alt = `${serv.rawServer.name} Icon`;
+            serverIcon.className = 'server-icon';
+
+            botWrapper.appendChild(serverIcon);
+        }
+    }
+
+    if (getCurrentView() === VIEWS.settings) {
+        animateSettingsTabRefresh();
+    }
+        
+    setLaunchEnabled(serv != null);
 }
 
 // Bind avatar overlay button.
@@ -218,31 +259,42 @@ const refreshServerStatus = async (fade = false) => {
     loggerLanding.info('Refreshing Server Status')
     const serv = (await DistroAPI.getDistribution()).getServerById(ConfigManager.getSelectedServer())
 
-    let pLabel = Lang.queryJS('landing.serverStatus.server')
+    // Inicializa valores padrão
     let pVal = Lang.queryJS('landing.serverStatus.offline')
+    let statusClass = 'offline'
 
     try {
-
+        // Obtém o status do servidor
         const servStat = await getServerStatus(47, serv.hostname, serv.port)
         console.log(servStat)
-        pLabel = Lang.queryJS('landing.serverStatus.players')
-        pVal = servStat.players.online + '/' + servStat.players.max
 
+        // Atualiza informações de players online
+        pVal = `${servStat.players.online}`
+        pLabel = Lang.queryJS('landing.serverStatus.players')
+        statusClass = 'online' 
     } catch (err) {
         loggerLanding.warn('Unable to refresh server status, assuming offline.')
         loggerLanding.debug(err)
     }
-    if(fade){
-        $('#server_status_wrapper').fadeOut(250, () => {
-            document.getElementById('landingPlayerLabel').innerHTML = pLabel
-            document.getElementById('player_count').innerHTML = pVal
-            $('#server_status_wrapper').fadeIn(500)
-        })
+
+    // Atualiza o conteúdo de _status_wrapper
+    const statusWrapper = document.getElementById('_status_wrapper')
+    if (statusWrapper) {
+        const newContent = `
+            <i class="fa-solid fa-circle status-icon ${statusClass}"></i>  
+            <div class="status-value">${pVal} ${pLabel}</div>
+        `
+        if (fade) {
+            $(statusWrapper).fadeOut(250, () => {
+                statusWrapper.innerHTML = newContent
+                $(statusWrapper).fadeIn(500)
+            })
+        } else {
+            statusWrapper.innerHTML = newContent
+        }
     } else {
-        document.getElementById('landingPlayerLabel').innerHTML = pLabel
-        document.getElementById('player_count').innerHTML = pVal
+        loggerLanding.error('Element #_status_wrapper not found in DOM.')
     }
-    
 }
 
 /**

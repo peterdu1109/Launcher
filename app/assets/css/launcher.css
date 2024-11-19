@@ -8,13 +8,18 @@
  ******************************************************************************/
 
 @font-face {
-    font-family: 'Avenir Book';
-    src: url('../fonts/Avenir-Book.ttf');
+    font-family: 'Montserrat Medium';
+    src: url('../fonts/Montserrat-SemiBold.ttf');
 }
 
 @font-face {
-    font-family: 'Avenir Medium';
-    src: url('../fonts/Avenir-Medium.ttf');
+    font-family: 'Montserrat SemiBold';
+    src: url('../fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat ExtraBold';
+    src: url('../fonts/Montserrat-ExtraBold.ttf');
 }
 
 @font-face {
@@ -52,7 +57,7 @@ p {
 /* Set default font and color. */
 body,
 button {
-    font-family: 'Avenir Book';
+    font-family: 'Montserrat Medium';
     color: white;
 }
 
@@ -121,7 +126,7 @@ button {
 
 #frameTitleText {
     font-size: 14px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     letter-spacing: 0.5px;
 }
 
@@ -306,7 +311,7 @@ button {
 }
 
 #welcomeHeader {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     text-align: center;
     color: white;
     margin-bottom: 25px;
@@ -587,7 +592,7 @@ button {
 /* Header on login view. */
 #loginSubheader {
     margin-top: 5vh;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     margin-bottom: 3vh;
     font-size: 25px;
     letter-spacing: 1px;
@@ -617,7 +622,7 @@ button {
 
 /* Span which displays errors related to login field content. */
 .loginErrorSpan {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-weight: bold;
     font-size: 10px;
     color: #b9524b;
@@ -1391,7 +1396,7 @@ color: rgba(255, 255, 255, 0.75);
 
 .settingsTabHeaderText {
     font-size: 20px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-weight: bold;
 }
 
@@ -1433,7 +1438,7 @@ color: rgba(255, 255, 255, 0.75);
     background: none;
     font-size: 12px;
     border-radius: 3px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     transition: 0.25s ease;
     cursor: pointer;
     outline: none;
@@ -1464,7 +1469,7 @@ background: #1d1332;
     background: rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     border: 1px solid #2c1e4d;
-    font-family: 'Avenir Book';
+    font-family: 'Montserrat Medium';
     transition: 0.25s ease;
 }
 
@@ -1499,7 +1504,7 @@ background: #1d1332;
 
 .settingsFieldTitle {
     font-size: 14px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: rgba(255, 255, 255, 0.95);
 }
 
@@ -1676,7 +1681,7 @@ input:checked+.toggleSwitchSlider:before {
 }
 
 .settingsFileSelDesc strong {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
 }
 
 /* * *
@@ -1798,7 +1803,7 @@ input:checked+.toggleSwitchSlider:before {
     font-size: 12px;
     color: grey;
     font-weight: bold;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
 }
 
 .settingsAuthAccountDetailValue {
@@ -1821,7 +1826,7 @@ input:checked+.toggleSwitchSlider:before {
     border: none;
     white-space: nowrap;
     background: none;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     outline: none;
     transition: 0.25s ease;
 }
@@ -1852,7 +1857,7 @@ input:checked+.toggleSwitchSlider:before {
     background: #151126;
     font-size: 12px;
     border-radius: 3px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     transition: 0.25s ease;
     cursor: pointer;
     outline: none;
@@ -2455,7 +2460,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Release type text. */
 #settingsAboutCurrentVersionTitle {
     font-size: 12px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: #23aa23;
     font-weight: bold;
 }
@@ -2548,7 +2553,7 @@ input:checked+.toggleSwitchSlider:before {
     background-color: rgba(255, 255, 255, 0.25);
     color: white;
     border-radius: 3px;
-    font-family: 'Avenir Book';
+    font-family: 'Montserrat Medium';
 }
 
 .settingsChangelogText li+li {
@@ -2664,7 +2669,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Release type text. */
 #settingsUpdateVersionTitle {
     font-size: 12px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: #23aa23;
     font-weight: bold;
 }
@@ -2731,7 +2736,7 @@ background: #2c1e4d;
     position: relative;
     transition: top 2s ease;
     top: 0px;
-    height: 77%;
+    height: 60%;
     display: flex;
     z-index: 1;
     justify-content: space-between;
@@ -2739,7 +2744,7 @@ background: #2c1e4d;
 
 #landingContainer>#upper>#left {
 width: 5%;
-    height: 126%;
+    height: 162%;
     border: solid #2c1e4d;
     border-width: 2px;
     border-left: 20px;
@@ -2756,7 +2761,7 @@ width: 5%;
 
 #landingContainer>#upper>#content {
     display: inline-flex;
-    width: 70%;
+    width: 60%;
     height: 100%;
 }
 
@@ -2767,24 +2772,24 @@ width: 5%;
 
 /* Lower content container. */
 #landingContainer>#lower {
-    height: 23%;
+    height: 40%;
     display: flex;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    flex-direction: row-reverse;
 }
 
 #landingContainer>#lower>#left {
     position: relative;
     transition: top 2s ease;
     top: 0px;
+    width: 24%;
     height: 100%;
-    width: 33%;
     display: inline-flex;
     justify-content: center;
 }
 
 #landingContainer>#lower>#left #content {
     position: relative;
-    top: 25px;
     display: inline-flex;
     line-height: 24px;
     left: 50px;
@@ -2795,7 +2800,7 @@ width: 5%;
     transition: top 2s ease;
     top: 0px;
     height: 100%;
-    width: 34%;
+    width: 6%;
     display: inline-flex;
     justify-content: center;
 }
@@ -2810,10 +2815,11 @@ width: 5%;
 #landingContainer>#lower>#right {
     position: relative;
     transition: top 2s ease;
-    top: 0px;
     height: 100%;
-    width: 33%;
+    width: 60%;
     display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 #top-sidebar {
@@ -2822,6 +2828,14 @@ width: 5%;
     justify-content: flex-start;
     align-items: center;
     height: 100%; 
+}
+
+#server-title {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: 'Montserrat ExtraBold'
 }
 /*******************************************************************************
  *                                                                             *
@@ -2892,7 +2906,7 @@ width: 5%;
 #newsArticleTitle {
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: white;
     text-decoration: none;
     transition: 0.25s ease;
@@ -3196,7 +3210,6 @@ width: 5%;
     width: 56px;
     background: url('../images/SealCircle.png');
     background-size: cover;
-    animation: float 4s ease-in-out infinite;
 }
 
 /* Animação de flutuação */
@@ -3251,7 +3264,7 @@ width: 5%;
     z-index: 1;
     top: 115%;
     left: -17.5px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-size: 12px;
     transition: visibility 0s linear 0.25s, opacity 0.25s ease;
 }
@@ -3514,118 +3527,44 @@ width: 5%;
 
 /* Span which displays the player count of the selected server. */
 #player_count {
-    color: #949494;
-    font-size: 8px;
-    font-weight: 900;
-    text-shadow: 0px 0px 20px #949494;
-    margin-left: 10px;
+    color: #ffffff;
+    font-size: 10px;
 }
 
-/* Wrapper container for the mojang status bar. */
-#mojangStatusWrapper {
-    position: relative;
-    display: flex;
-    cursor: pointer;
-}
-
-/* Icon which displays the status of the mojang services. */
-#mojang_status_icon {
-    font-size: 30px;
-    color: #848484;
-    margin-left: 15px;
-    font-family: 'sans-serif';
-    display: none;
-}
-
-/* Tooltip which displays more details about the mojang statuses. */
-#mojangStatusTooltip {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    width: 145px;
-    min-height: 150px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
+#_status_wrapper {
+    width: 20%;
+    background: #151126;
     border-radius: 4px;
-    padding: 5px 10px;
-    z-index: 1;
-    font-family: 'Avenir Medium';
-    font-size: 12px;
-    transition: visibility 0s linear 0.25s, opacity 0.25s ease;
-    bottom: calc(100% + 15px);
-    transform: translateX(-50%);
-    margin-left: 50%;
-    box-shadow: 0px 0px 20px rgb(0, 0, 0);
-    cursor: default;
-}
-
-#mojangStatusTooltip:after {
-    content: " ";
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
-}
-
-#mojangStatusWrapper:hover #mojangStatusTooltip {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0s;
-}
-
-/* Tooltip title for the mojang statuses. */
-#mojangStatusTooltipTitle {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-}
-
-/* Wrapper container for the non essential services title. */
-#mojangStatusNEContainer {
     display: flex;
     align-items: center;
-    margin: 10px 0px;
+    justify-content: center;
+    padding: 5px;
 }
 
-/* White bar which surrounds the non essential service title. */
-.mojangStatusNEBar {
-    height: 1px;
-    width: 100%;
-    background: white;
+    #_status_wrapper .status-label {
+        font-size: 10px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    #_status_wrapper .status-value {
+        font-size: 10px;
+    }
+
+.status-icon {
+    font-size: 8px;
+    margin-right: 4px;
 }
 
-/* Non essential service title text. */
-#mojangStatusNETitle {
-    font-size: 10px;
-    padding: 0px 3px;
-    text-align: center;
-    letter-spacing: 1px;
-}
+    /* Estilo para o status online */
+    .status-icon.online {
+        color: #4CAF50; /* Verde para online */
+    }
 
-/* Wrapper container for mojang service information. */
-.mojangStatusContainer {
-    display: flex;
-}
-
-/* Displays the name of the mojang service. */
-.mojangStatusName {
-    width: 100%;
-    font-size: 10px;
-    letter-spacing: 1px;
-    line-height: 12px;
-    padding: 6px 0px;
-}
-
-/* Displays the status of the mojang service. */
-.mojangStatusIcon {
-    margin-right: 10px;
-    font-size: 18.5px;
-    color: #848484;
-}
+    /* Estilo para o status offline */
+    .status-icon.offline {
+        color: #9E9E9E; /* Cinza para offline */
+    }
 
 /* * *
 * Landing View (Bottom Styles) | Center Content
@@ -3702,46 +3641,41 @@ width: 5%;
 * * */
 
 /* Main launch content container. */
-#landingContainer>#lower>#right #launch_content {
+#landingContainer > #lower > #right #launch_content {
     position: relative;
-    top: 25px;
     display: inline-flex;
-    align-items:center;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    width: 100%;    
 }
 
 /* The launch button. */
+/* The launch button. */
 #launch_button {
+    text-align: left;
+    width: 40%;
+    padding: 10px 0px;
+    padding-left: 10px;
     position: relative;
-    padding: 8px 25px;
-    border-radius: 7px;
-    border: 1px solid rgb(0, 255, 196);
+    border-radius: 3px;
+    border: #2c1e4d;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
-    background: transparent;
+    background: #1d1332;
     color: #fff;
     overflow: hidden;
-    box-shadow: 0 0 0 0 transparent;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    border: solid 1px #2c1e4d;
 }
 
     #launch_button:hover {
-        background: rgb(0, 255, 196);
-        box-shadow: 0 0 13px 5px rgba(0, 142, 236, 0.815);
-        -webkit-transition: all 0.2s ease-out;
-        -moz-transition: all 0.2s ease-out;
+        background: #1d1332;
         transition: all 0.2s ease-out;
     }
 
-        #launch_button:hover::before {
-            -webkit-animation: sh02 0.5s 0s linear;
-            -moz-animation: sh02 0.5s 0s linear;
-            animation: sh02 0.5s 0s linear;
-        }
-
+    /* Reversing the shine effect on mouse out */
     #launch_button::before {
         content: '';
         display: block;
@@ -3758,8 +3692,16 @@ width: 5%;
         -ms-transform: skewX(-20deg);
         -o-transform: skewX(-20deg);
         transform: skewX(-20deg);
+        transition: all 0.5s ease-in-out; /* This transition controls the shine */
     }
 
+    #launch_button:hover::before {
+        -webkit-animation: sh02 0.5s 0s linear forwards;
+        -moz-animation: sh02 0.5s 0s linear forwards;
+        animation: sh02 0.5s 0s linear forwards;
+    }
+
+/* Animation for shine effect */
 @keyframes sh02 {
     from {
         opacity: 0;
@@ -3773,6 +3715,30 @@ width: 5%;
     to {
         opacity: 0;
         left: 100%;
+    }
+}
+
+/* Reverse shine effect when mouse leaves */
+#launch_button:not(:hover)::before {
+    -webkit-animation: sh02-reverse 0.5s 0s linear forwards;
+    -moz-animation: sh02-reverse 0.5s 0s linear forwards;
+    animation: sh02-reverse 0.5s 0s linear forwards;
+}
+
+/* Reverse animation */
+@keyframes sh02-reverse {
+    from {
+        opacity: 0;
+        left: 100%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 0%;
     }
 }
 
@@ -3815,25 +3781,47 @@ width: 5%;
     justify-content: center;
 }
 
+.small-white-svg {
+    width: 12px; /* Ajuste o tamanho conforme necessário */
+    height: 12px; /* Ajuste o tamanho conforme necessário */
+    fill: white; /* Cor branca */
+    margin-right: 2px;
+}
+
+
 /* Button which opens the server selection view. */
 #server_selection_button {
-    background: none;
-    border: none;
+    background: #151126;
     outline: none;
+    border: 0.5px solid #2c1e4d;
     cursor: pointer;
-    line-height: 24px;
-    padding: 0px;
+    border-radius: 3px;
     transition: 0.25s ease;
+    margin-bottom: 8px;
+    text-align: right;
+    padding: 6px 0px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    width: 30%;
 }
 
 #server_selection_button:hover,
 #server_selection_button:focus {
-    text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff, 0px 0px 20px #fff;
+    background: none;
 }
 
 #server_selection_button:active {
-    color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
+
+}
+
+#server_selection_button_warper {
+    text-align: left;
+    width: 100%;
 }
 
 /* Progress bar styles. */
@@ -4162,7 +4150,7 @@ a {
 
 /* Overlay title styles. */
 #overlayTitle {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -4188,7 +4176,7 @@ a {
     background: none;
     border: 1px solid #ffffff;
     color: white;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-weight: bold;
     border-radius: 2px;
     padding: 0px 8.1px;
@@ -4247,7 +4235,7 @@ a {
 /* Server selection header. */
 #serverSelectHeader,
 #accountSelectHeader {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-size: 20px;
     font-weight: bold;
     color: #fff;
@@ -4376,6 +4364,15 @@ a {
     margin: 0px 10px 0px 5px;
     height: 50px;
     width: 50px;    
+}
+
+.server-icon {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    margin-top: 10px;
+    object-fit: cover;
+    animation: float 4s ease-in-out infinite;   
 }
 
 /* Content container for the server listing's details. */
