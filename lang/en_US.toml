@@ -218,8 +218,8 @@ checking = "Checking for News"
 
 [js.landing.discord]
 loading = "Loading game.."
-joining = "Joining the realms of zelthoriai"
-joined = "Exploring the island of zelthoriai!"
+joining = "Joining a Hasta Studios Server"
+joined = "Exploring the hasta studios universe"
 
 [js.overlay]
 dismiss = "Dismiss"

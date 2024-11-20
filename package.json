@@ -2,12 +2,12 @@
     "name": "HastaStudiosLauncher",
     "version": "2.1.0",
     "productName": "Hasta Studios Launcher",
-    "description": "Oficial Laucnher For All Hasta Studios And ZSMP Projects",
+    "description": "Oficial Laucnher For All Hasta Studios Projects",
     "author": "Shisuys (https://github.com/shisuiicaro/)",
     "license": "UNLICENSED",
     "homepage": "https://github.com/Shisuiicaro/HastaStudiosLauncher",
     "bugs": {
-        "url": "https://discord.gg/zsmp"
+        "url": "https://discord.gg/hastastudios"
     },
     "private": true,
     "main": "index.js",
