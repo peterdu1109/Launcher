@@ -250,6 +250,7 @@ button {
     align-items: center;
     height: 100%;
     width: 100%;
+    background-color: #0f0d21e8;
 }
 
 #welcomeContent {
@@ -300,12 +301,8 @@ button {
 */
 
 #welcomeImageSeal {
-    border-radius: 50%;
-    border: 2px solid #cad7e1;
-    background: rgba(1, 2, 1, 0.5);
     height: 125px;
     width: 125px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
     margin-bottom: 5%;
     margin-top: 10%;
 }
@@ -317,14 +314,13 @@ button {
     margin-bottom: 25px;
     letter-spacing: 1px;
     font-size: 20px;
-    text-shadow: white 0px 0px 0px;
 }
 
 #welcomeDescription {
     text-align: justify;
     font-size: 13px;
     font-weight: 100;
-    text-shadow: rgba(255, 255, 255, 0.75) 0px 0px 20px
+    font-family: 'Montserrat Medium';
 }
 
 #welcomeDescCTA {
@@ -336,18 +332,18 @@ button {
 
 /* Login button styles. */
 #welcomeButton {
-    background: none;
+    background: #151126;
     font-weight: bold;
     letter-spacing: 2px;
     border: none;
-    padding: 15px 5px;
+    padding: 20px;
     margin: 10px 0px;
     cursor: pointer;
     position: relative;
-    right: -20px;
     transition: 0.5s ease;
     margin-top: 5%;
     margin-bottom: -5%;
+    border-radius: 6px;
 }
 
 #welcomeButton:disabled {
@@ -357,13 +353,13 @@ button {
 
 #welcomeButton:hover,
 #welcomeButton:focus {
-    text-shadow: 0px 0px 20px #fff;
+    background: #1d1332;
     outline: none;
 }
 
 #welcomeButton:active {
     color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7;
+    background: #1d1332;
 }
 
 #welcomeSVG {
@@ -512,7 +508,7 @@ button {
 #loginForm {
     height: 70vh;
     width: 390px;
-    background-color: #0e0e12;
+    background-color: #151126;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -665,14 +661,14 @@ button {
 
 /* Login text input styles. */
 .loginField {
-    background-color: #2935434d;
+    background-color: #0f0d21e8;
     border-radius: 5px;
     border: #5888b5;
     color: #a9a9a9;
     margin-bottom: 1em;
     padding: 0 40px;
     width: 235px;
-    height: 35px;   
+    height: 35px;
 }
 
 .loginField:focus {
@@ -722,7 +718,7 @@ button {
 
 /* Login button styles. */
 #loginButton {
-    background: rgb(65 0 255);
+    background: #2c1e4d;
     border: 0;
     width: 70%;
     height: 40px;
@@ -743,7 +739,7 @@ button {
 
 #loginButton:hover,
 #loginButton:focus {
-    text-shadow: 0px 0px 20px #fff;
+    background: #0f0d21e8;
     outline: none;
 }
 

@@ -198,7 +198,7 @@ function enablePageScroll() {
     document.body.style.overflow = '';
 }
 
-function addEscKeyListener() {
+/*function addEscKeyListener() {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             switchView(getCurrentView(), VIEWS.landing);
@@ -206,8 +206,9 @@ function addEscKeyListener() {
     });
 }
 
+ */
 document.addEventListener('DOMContentLoaded', () => {
     loadCreatorsData();
     disablePageScroll();
-    addEscKeyListener();
+    // addEscKeyListener();
 });
