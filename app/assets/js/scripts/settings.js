@@ -330,7 +330,7 @@ function fullSettingsSave() {
     saveModConfiguration()
     ConfigManager.save()
     saveDropinModConfiguration()
-    saveShaderpackSettings()
+    //saveShaderpackSettings()
 }
 
 /* Closes the settings view and saves all data. */
@@ -343,8 +343,6 @@ settingsNavDone.onclick = () => {
  * Account Management Tab
  */
 
-const msftLoginLogger = LoggerUtil.getLogger('Microsoft Login')
-const msftLogoutLogger = LoggerUtil.getLogger('Microsoft Logout')
 
 // Bind the add mojang account button.
 document.getElementById('settingsAddMojangAccount').onclick = (e) => {
@@ -355,12 +353,8 @@ document.getElementById('settingsAddMojangAccount').onclick = (e) => {
     })
 }
 
-// Bind the add microsoft account button.
-document.getElementById('settingsAddMicrosoftAccount').onclick = (e) => {
-    switchView(getCurrentView(), VIEWS.waiting, 500, 500, () => {
-        ipcRenderer.send(MSFT_OPCODE.OPEN_LOGIN, VIEWS.settings, VIEWS.settings)
-    })
-}
+const msftLoginLogger = LoggerUtil.getLogger('Microsoft Login')
+const msftLogoutLogger = LoggerUtil.getLogger('Microsoft Logout')
 
 // Bind reply for Microsoft Login.
 ipcRenderer.on(MSFT_OPCODE.REPLY_LOGIN, (_, ...arguments_) => {
@@ -750,7 +744,6 @@ await Promise.all(promises);
  */
 async function prepareAccountsTab() {
     const { microsoftAuthAccountStr, mojangAuthAccountStr } = await populateAuthAccounts();
-    settingsCurrentMicrosoftAccounts.innerHTML = microsoftAuthAccountStr;
     settingsCurrentMojangAccounts.innerHTML = mojangAuthAccountStr;
     bindAuthAccountSelect();
     bindAuthAccountLogOut();

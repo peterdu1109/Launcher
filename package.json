@@ -2,12 +2,12 @@
     "name": "HastaStudiosLauncher",
     "version": "2.1.1",
     "productName": "Hasta Studios Launcher",
-    "description": "Oficial Laucnher For All Hasta Studios And ZSMP Projects",
+    "description": "Oficial Laucnher For All Hasta Studios Projects",
     "author": "Shisuys (https://github.com/shisuiicaro/)",
     "license": "UNLICENSED",
     "homepage": "https://github.com/Shisuiicaro/HastaStudiosLauncher",
     "bugs": {
-        "url": "https://discord.gg/zsmp"
+        "url": "https://discord.gg/hastastudios"
     },
     "private": true,
     "main": "index.js",
@@ -26,6 +26,7 @@
         "@electron/remote": "^2.1.2",
         "adm-zip": "^0.5.12",
         "discord-rpc-patch": "^4.0.1",
+        "dotenv": "^16.4.5",
         "ejs": "^3.1.10",
         "ejs-electron": "^3.0.0",
         "electron-updater": "^6.1.8",

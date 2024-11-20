@@ -4,13 +4,13 @@ usernamePlaceholder = "Username"
 usernameEditButton = "Edit"
 settingsTooltip = "Settings"
 serverStatus = "SERVER"
-serverStatusPlaceholder = "OFFLINE"
+serverStatusPlaceholder = "Server Offline"
 mojangStatus = "ZELTHORIAI SMP"
 mojangStatusTooltipTitle = "Services"
 mojangStatusNETitle = "Non&nbsp;Essential"
 newsButton = "NEWS"
 launchButton = "PLAY"
-launchButtonPlaceholder = "&#8226; No Server Selected"
+launchButtonPlaceholder = "No Server Selected"
 launchDetails = "Please wait.."
 newsNavigationStatus = "{currentPage} of {totalPages}"
 newsErrorLoadSpan = "Checking for News.."
@@ -41,12 +41,11 @@ loginWithMojang = "Login with Hasta Studios"
 cancelButton = "Cancel"
 
 [ejs.overlay]
-serverSelectHeader = "Available Servers"
-serverSelectConfirm = "Select"
-serverSelectCancel = "Cancel"
+serverSelectHeader = "Hasta Studios Servers"
 accountSelectHeader = "Select an Account"
 accountSelectConfirm = "Select"
 accountSelectCancel = "Cancel"
+accountSelectManage = "Manage Accounts"
 
 [ejs.settings]
 navHeaderText = "Settings"
@@ -64,7 +63,7 @@ tabAccountHeaderDesc = "Add new accounts or manage existing ones."
 microsoftAccount = "Microsoft"
 addMicrosoftAccount = "+ Add Microsoft Account"
 mojangAccount = "Hasta Studios"
-addMojangAccount = "+ Add Hasta Studios Account"
+addMojangAccount = " Add Account"
 minecraftTabHeaderText = "Minecraft Settings"
 minecraftTabHeaderDesc = "Options related to game launch."
 gameResolutionTitle = "Game Resolution"
@@ -111,7 +110,7 @@ aboutTabHeaderDesc = "View information and release notes for the current version
 aboutTitle = "{appName}"
 stableRelease = "Stable Release"
 versionText = "Version "
-sourceGithub = "Source (GitHub)"
+sourceGithub = "Launcher Log"
 support = "Support"
 devToolsConsole = "DevTools Console"
 releaseNotes = "Release Notes"
@@ -123,6 +122,11 @@ launcherUpdatesHeaderDesc = "Download, install, and review updates for the launc
 checkForUpdates = "Check for Updates"
 whatsNew = "What's New"
 updateReleaseNotes = "Update Release Notes"
+
+[ejs.status]
+noCreators = "Can't find any streamers"
+confirm = "Close"
+viewChannel = "View Channel"
 
 [ejs.waiting]
 waitingText = "Waiting for Microsoft.."
@@ -163,13 +167,14 @@ okay = "Okay"
 noAccountSelected = "No Account Selected"
 
 [js.landing.selectedServer]
-noSelection = "No Server Selected"
+noSelection = "Server List"
+serverList = "Server List"
 loading = "Loading.."
 
 [js.landing.serverStatus]
-server = "SERVER"
-offline = "OFFLINE"
-players = "PLAYERS"
+server = "Server"
+offline = "Server Offline"
+players = "Connected Players"
 
 [js.landing.systemScan]
 checking = "Checking system info.."
@@ -181,7 +186,7 @@ javaDownloadPrepare = "Preparing Java Download.."
 javaDownloadFailureTitle = "Error During Java Download"
 javaDownloadFailureText = "See console (CTRL + Shift + i) for more details."
 javaRequired = "Java is Required<br>to Launch"
-javaRequiredMessage = 'A valid x64 installation of Java {major} is required to launch.<br><br>Please refer to our <a href="https://github.com/dscalzi/HeliosLauncher/wiki/Java-Management#manually-installing-a-valid-version-of-java">Java Management Guide</a> for instructions on how to manually install Java.'
+javaRequiredMessage = 'A valid x64 installation of Java {major} is required to launch'
 javaRequiredDismiss = "I Understand"
 javaRequiredCancel = "Go Back"
 
@@ -213,8 +218,8 @@ checking = "Checking for News"
 
 [js.landing.discord]
 loading = "Loading game.."
-joining = "Joining the realms of zelthoriai"
-joined = "Exploring the island of zelthoriai!"
+joining = "Joining a Hasta Studios Server"
+joined = "Exploring the hasta studios universe"
 
 [js.overlay]
 dismiss = "Dismiss"

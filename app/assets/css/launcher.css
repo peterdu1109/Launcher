@@ -8,13 +8,18 @@
  ******************************************************************************/
 
 @font-face {
-    font-family: 'Avenir Book';
-    src: url('../fonts/Avenir-Book.ttf');
+    font-family: 'Montserrat Medium';
+    src: url('../fonts/Montserrat-SemiBold.ttf');
 }
 
 @font-face {
-    font-family: 'Avenir Medium';
-    src: url('../fonts/Avenir-Medium.ttf');
+    font-family: 'Montserrat SemiBold';
+    src: url('../fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat ExtraBold';
+    src: url('../fonts/Montserrat-ExtraBold.ttf');
 }
 
 @font-face {
@@ -52,7 +57,7 @@ p {
 /* Set default font and color. */
 body,
 button {
-    font-family: 'Avenir Book';
+    font-family: 'Montserrat Medium';
     color: white;
 }
 
@@ -121,7 +126,7 @@ button {
 
 #frameTitleText {
     font-size: 14px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     letter-spacing: 0.5px;
 }
 
@@ -245,6 +250,7 @@ button {
     align-items: center;
     height: 100%;
     width: 100%;
+    background-color: #0f0d21e8;
 }
 
 #welcomeContent {
@@ -295,31 +301,26 @@ button {
 */
 
 #welcomeImageSeal {
-    border-radius: 50%;
-    border: 2px solid #cad7e1;
-    background: rgba(1, 2, 1, 0.5);
     height: 125px;
     width: 125px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
     margin-bottom: 5%;
     margin-top: 10%;
 }
 
 #welcomeHeader {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     text-align: center;
     color: white;
     margin-bottom: 25px;
     letter-spacing: 1px;
     font-size: 20px;
-    text-shadow: white 0px 0px 0px;
 }
 
 #welcomeDescription {
     text-align: justify;
     font-size: 13px;
     font-weight: 100;
-    text-shadow: rgba(255, 255, 255, 0.75) 0px 0px 20px
+    font-family: 'Montserrat Medium';
 }
 
 #welcomeDescCTA {
@@ -331,18 +332,18 @@ button {
 
 /* Login button styles. */
 #welcomeButton {
-    background: none;
+    background: #151126;
     font-weight: bold;
     letter-spacing: 2px;
     border: none;
-    padding: 15px 5px;
+    padding: 20px;
     margin: 10px 0px;
     cursor: pointer;
     position: relative;
-    right: -20px;
     transition: 0.5s ease;
     margin-top: 5%;
     margin-bottom: -5%;
+    border-radius: 6px;
 }
 
 #welcomeButton:disabled {
@@ -352,13 +353,13 @@ button {
 
 #welcomeButton:hover,
 #welcomeButton:focus {
-    text-shadow: 0px 0px 20px #fff;
+    background: #1d1332;
     outline: none;
 }
 
 #welcomeButton:active {
     color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7;
+    background: #1d1332;
 }
 
 #welcomeSVG {
@@ -506,9 +507,9 @@ button {
 
 #loginForm {
     height: 70vh;
-    width: 350px;
-    background-color: #121212ad;
-    border-radius: 3%;
+    width: 390px;
+    background-color: #151126;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -516,7 +517,7 @@ button {
 }
 
 #loginDiv {
-    margin: 10px;
+    margin: 10px;   
 }
 
 /* Login form anchor styles. */
@@ -587,7 +588,7 @@ button {
 /* Header on login view. */
 #loginSubheader {
     margin-top: 5vh;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     margin-bottom: 3vh;
     font-size: 25px;
     letter-spacing: 1px;
@@ -597,6 +598,7 @@ button {
 /* Container to organize login field elements. */
 .loginFieldContainer {
     position: relative;
+    padding-right: initial;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -608,21 +610,25 @@ button {
     fill: #fff;
     height: 20px;
     width: 20px;
-    margin-bottom: 5px;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 10px;
+    border-radius: 5%;
 }
 
 /* Span which displays errors related to login field content. */
 .loginErrorSpan {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-weight: bold;
-    font-size: 8px;
-    color: #ff1b0c;
+    font-size: 10px;
+    color: #b9524b;
     width: 100%;
     text-align: right;
     position: absolute;
-    top: 7px;
+    top: 2px;
     opacity: 0;
     transition: 0.25s ease;
+    margin-left: -5px;
 }
 
 .shake {
@@ -655,12 +661,12 @@ button {
 
 /* Login text input styles. */
 .loginField {
-    background-color: #3b4148;
+    background-color: #0f0d21e8;
     border-radius: 5px;
-    border: aliceblue;
+    border: #5888b5;
     color: #a9a9a9;
     margin-bottom: 1em;
-    padding: 0 16px;
+    padding: 0 40px;
     width: 235px;
     height: 35px;
 }
@@ -712,11 +718,11 @@ button {
 
 /* Login button styles. */
 #loginButton {
-    background: #1ac386;
+    background: #2c1e4d;
     border: 0;
     width: 70%;
     height: 40px;
-    border-radius: 3px;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
@@ -733,7 +739,7 @@ button {
 
 #loginButton:hover,
 #loginButton:focus {
-    text-shadow: 0px 0px 20px #fff;
+    background: #0f0d21e8;
     outline: none;
 }
 
@@ -1192,14 +1198,13 @@ button {
     position: relative;
     height: 100%;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: #0f0d21e8;
     transition: background-color 0.25s cubic-bezier(.02, .01, .47, 1);
 }
 
 /* Drop shadow displayed when content is scrolled out of view. */
 #settingsContainer:before {
     content: '';
-    background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
     width: 100%;
     height: 5px;
     position: absolute;
@@ -1214,16 +1219,23 @@ button {
 /* Left hand side of the settings UI, for navigation. */
 #settingsContainerLeft {
     padding-top: 4%;
-    height: 100%;
-    width: 25%;
+    height: 90%;
+    width: 18%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 0% 3%;
 }
 
 /* Settings navigation container. */
 #settingsNavContainer {
-    height: 100%;
+    height: 90%;
     display: flex;
+    background: #151126;
     flex-direction: column;
+    padding: 20px;
+    border-radius: 6px;
+    width: 75%; 
 }
 
 /* Navigation header styles. */
@@ -1231,6 +1243,8 @@ button {
     height: 15%;
     display: flex;
     justify-content: center;
+    font-weight: bold;
+    padding: 20px;
 }
 
 #settingsNavHeaderText {
@@ -1251,31 +1265,35 @@ button {
     display: flex;
     flex-direction: column;
     position: relative;
+    align-items: center;
 }
 
 /* Navigation item shared styles. */
 .settingsNavItem {
-    background: none;
+    background: #1d1332;
     border: none;
-    text-align: left;
+    text-align: center;
     margin: 5px 0px;
-    padding: 0px 20px;
+    padding: 5px 20px;
     color: grey;
     cursor: pointer;
-    outline: none;
     transition: 0.25s ease;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 120%;
+    border: solid 1px #151126 ;
 }
 
 .settingsNavItem:hover,
 .settingsNavItem:focus {
-    color: #c1c1c1;
-    text-shadow: 0px 0px 20px #c1c1c1;
+border: solid 1px #2c1e4d;
 }
 
 .settingsNavItem[selected] {
-    cursor: default;
+    border: solid 1px #2c1e4d;
     color: white;
-    text-shadow: none;
+    background: none;
+=
 }
 
 /* Div to add some space between nav items. */
@@ -1285,12 +1303,11 @@ button {
 
 /* Content container for the done button. */
 #settingsNavContentBottom {
-    position: absolute;
-    top: 65%;
 }
 
 /* Settings navigational divider. */
 .settingsNavDivider {
+    display: none;
     width: 75%;
     height: 1px;
     background: rgba(126, 126, 126, 0.57);
@@ -1300,25 +1317,28 @@ button {
 
 /* Settings done button styles. */
 #settingsNavDone {
-    background: none;
+    background: #1d1332;
     border: none;
     text-align: left;
-    margin: 5px 0px;
-    padding: 0px 20px;
+    padding: 8px;
     color: white;
     cursor: pointer;
     outline: none;
     transition: 0.25s ease;
+    border-radius: 4px;
+    padding-right: 45px;
+    padding-left: 45px;
+    margin-top: 30%;
 }
 
 #settingsNavDone:hover,
 #settingsNavDone:focus {
-    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+    background: #2c1e4d;
 }
 
 #settingsNavDone:active {
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75);
-    color: rgba(255, 255, 255, 0.75);
+background: #2c1e4d;  
+color: rgba(255, 255, 255, 0.75);
 }
 
 #settingsNavDone:disabled {
@@ -1372,7 +1392,8 @@ button {
 
 .settingsTabHeaderText {
     font-size: 20px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
+    font-weight: bold;
 }
 
 .settingsTabHeaderDesc {
@@ -1381,9 +1402,10 @@ button {
 
 /* Selected server content container */
 .settingsSelServContainer {
-    background: rgba(0, 0, 0, 0.25);
-    width: 75%;
-    border-radius: 3px;
+    background: #151126;
+    padding: 5px;
+    width: 74%;
+    border-radius: 6px;
     display: flex;
     justify-content: space-between;
     margin: 15px 0px;
@@ -1407,12 +1429,12 @@ button {
 /* Button to switch server configurations on the mods tab. */
 .settingsSwitchServerButton {
     opacity: 0;
-    border: 1px solid rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+    border: 1px solid #2c1e4d;
+    color: #2c1e4d;
     background: none;
     font-size: 12px;
     border-radius: 3px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     transition: 0.25s ease;
     cursor: pointer;
     outline: none;
@@ -1420,15 +1442,11 @@ button {
 
 .settingsSwitchServerButton:hover,
 .settingsSwitchServerButton:focus {
-    box-shadow: 0px 0px 20px rgb(255, 255, 255);
-    background: rgba(255, 255, 255, 0.25);
+    background: #1d1332;
 }
 
 .settingsSwitchServerButton:active {
-    box-shadow: 0px 0px 20px rgb(187, 187, 187);
-    background: rgba(187, 187, 187, 0.25);
-    border: 1px solid rgb(187, 187, 187);
-    color: rgb(187, 187, 187);
+background: #1d1332;
 }
 
 .settingsSelServContainer:hover .settingsSwitchServerButton {
@@ -1445,9 +1463,9 @@ button {
 #settingsContainer input[type=text] {
     color: white;
     background: rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    font-family: 'Avenir Book';
+    border-radius: 5px;
+    border: 1px solid #2c1e4d;
+    font-family: 'Montserrat Medium';
     transition: 0.25s ease;
 }
 
@@ -1468,9 +1486,11 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0px;
     width: 75%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+    background: #151126;
+    border-radius: 6px;
+    margin-top: 12px;
+    padding: 12px;
 }
 
 .settingsFieldLeft {
@@ -1480,7 +1500,7 @@ button {
 
 .settingsFieldTitle {
     font-size: 14px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: rgba(255, 255, 255, 0.95);
 }
 
@@ -1488,6 +1508,7 @@ button {
     font-size: 12px;
     color: rgba(255, 255, 255, .95);
     margin-top: 5px;
+    font-family: 'Montserrat Medium';
 }
 
 .settingsDivider {
@@ -1517,10 +1538,9 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: #0f0c1a;
     transition: .4s;
     border-radius: 50px;
-    border: 1px solid rgba(126, 126, 126, 0.57);
 }
 
 .toggleSwitchSlider:before {
@@ -1537,9 +1557,7 @@ button {
 }
 
 input:checked+.toggleSwitchSlider {
-    background-color: rgb(31, 140, 11);
-    /* box-shadow: inset 2px 1px 20px black; */
-    border: 1px solid rgb(31, 140, 11);
+    background-color: #13103a;
 }
 
 input:checked+.toggleSwitchSlider:before {
@@ -1580,12 +1598,17 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main container for File selectors. */
 .settingsFileSelContainer {
+    width: 71%;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
     margin-bottom: 20px;
-    margin-top: 20px;
-    width: 75%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
+}
+#settingsFileSelContainer1 {
+    margin-top: 10px;
+    width: 75%
 }
 
 /* File selector title. */
@@ -1603,7 +1626,7 @@ input:checked+.toggleSwitchSlider:before {
 .settingsFileSelIcon {
     display: flex;
     align-items: center;
-    background: rgba(126, 126, 126, 0.57);
+    background: #2c1e4d;
     border-radius: 3px 0px 0px 3px;
     padding: 5px;
     transition: 0.25s ease;
@@ -1631,7 +1654,7 @@ input:checked+.toggleSwitchSlider:before {
     font-size: 12px;
     padding: 0px 5px;
     cursor: pointer;
-    background: rgba(126, 126, 126, 0.57);
+    background: #2c1e4d;
     transition: 0.25s ease;
     white-space: nowrap;
     outline: none;
@@ -1639,11 +1662,10 @@ input:checked+.toggleSwitchSlider:before {
 
 .settingsFileSelButton:hover,
 .settingsFileSelButton:focus {
-    text-shadow: 0px 0px 20px white;
+    background: #1d1332;
 }
 
 .settingsFileSelButton:active {
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -1656,7 +1678,7 @@ input:checked+.toggleSwitchSlider:before {
 }
 
 .settingsFileSelDesc strong {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
 }
 
 /* * *
@@ -1667,16 +1689,17 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     width: 75%;
     flex-direction: column;
+    background: #151126;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .settingsAuthAccountTypeHeader {
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 0px;
-    border-bottom: 1px solid #ffffff85;
-    margin-bottom: 30px;
 }
 
 .settingsAuthAccountTypeHeaderLeft {
@@ -1686,19 +1709,23 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Settings add account button styles. */
 .settingsAddAuthAccount {
-    background: none;
+    background: #151126;
     border: none;
     text-align: left;
-    padding: 2px 0px;
+    padding: 8px;
     color: white;
     cursor: pointer;
     outline: none;
     transition: 0.25s ease;
+    border-radius: 4px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .settingsAddAuthAccount:hover,
 .settingsAddAuthAccount:focus {
-    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+    background: #13103a;
+    
 }
 
 .settingsAddAuthAccount:active {
@@ -1713,7 +1740,7 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Auth account list container styles. */
 .settingsCurrentAccounts {
-    margin-bottom: 5%;
+    margin-bottom: 3%
 }
 
 .settingsCurrentAccounts>.settingsAuthAccount:not(:last-child) {
@@ -1727,9 +1754,10 @@ input:checked+.toggleSwitchSlider:before {
 /* Auth account shared styles. */
 .settingsAuthAccount {
     display: flex;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    border: #2c1e4d;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
 }
 
 /* Left hand side of an auth account element, for the skin image. */
@@ -1772,7 +1800,7 @@ input:checked+.toggleSwitchSlider:before {
     font-size: 12px;
     color: grey;
     font-weight: bold;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
 }
 
 .settingsAuthAccountDetailValue {
@@ -1795,9 +1823,12 @@ input:checked+.toggleSwitchSlider:before {
     border: none;
     white-space: nowrap;
     background: none;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     outline: none;
     transition: 0.25s ease;
+}
+.settingsAuthAccountbtn {
+    text-align: center
 }
 
 .settingsAuthAccountSelect:hover:not([selected]),
@@ -1820,10 +1851,10 @@ input:checked+.toggleSwitchSlider:before {
     opacity: 0;
     border: 1px solid rgb(241, 55, 55);
     color: rgb(241, 55, 55);
-    background: none;
+    background: #151126;
     font-size: 12px;
     border-radius: 3px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     transition: 0.25s ease;
     cursor: pointer;
     outline: none;
@@ -1831,15 +1862,12 @@ input:checked+.toggleSwitchSlider:before {
 
 .settingsAuthAccountLogOut:hover,
 .settingsAuthAccountLogOut:focus {
-    box-shadow: 0px 0px 20px rgb(241, 55, 55);
-    background: rgba(241, 55, 55, 0.25);
+    background: rgb(146, 12, 12);
 }
 
 .settingsAuthAccountLogOut:active {
-    box-shadow: 0px 0px 20px rgb(185, 47, 47);
     background: rgba(185, 47, 47, 0.25);
-    border: 1px solid rgb(185, 47, 47);
-    color: rgb(185, 47, 47);
+    color: rgb(146, 12, 12);
 }
 
 .settingsAuthAccount:hover .settingsAuthAccountLogOut {
@@ -1855,7 +1883,9 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+    border-radius: 6px;
+    padding: 12px;
+    background: #151126;
     width: 75%;
 }
 
@@ -1882,13 +1912,20 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main content container for the mod elements. */
 #settingsModsContainer {
-    width: 85%;
+    width: 71%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
 }
 
+#settingsModsInnerContainer {
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
+}
 /* Mod sub-container header text. */
 .settingsModsHeader {
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     margin-bottom: 10px;
 }
 
@@ -1904,9 +1941,11 @@ input:checked+.toggleSwitchSlider:before {
 #settingsOptModsContent,
 #settingsDropinModsContent {
     font-size: 12px;
-    background: rgba(0, 0, 0, 0.25);
     border-radius: 3px;
+    border-width: 1px;
     color: white;
+    border-style: solid;
+    border-color: #2c1e4d;
 }
 
 /* Mod elements. */
@@ -2060,8 +2099,8 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Button to add shaderpacks. */
 #settingsShaderpackButton {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    background: none;
+    border: 1px solid #2c1e4d;
     border-radius: 3px;
     cursor: pointer;
     outline: none;
@@ -2080,6 +2119,8 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main select container. */
 .settingsSelectContainer {
+    border-radius: 6px;
+    background: #151126;
     position: relative;
     width: 50%;
 }
@@ -2123,7 +2164,7 @@ input:checked+.toggleSwitchSlider:before {
     z-index: 99;
     max-height: 300%;
     overflow-y: scroll;
-    border: 1px solid rgba(126, 126, 126, 0.57);
+    border: 1px solid #2c1e4d;
     border-top: none;
     border-radius: 0px 0px 3px 3px;
 }
@@ -2149,11 +2190,10 @@ input:checked+.toggleSwitchSlider:before {
 /* Shared styles between options and selection div. */
 .settingsSelectOptions div,
 .settingsSelectSelected {
-    background: rgba(0, 0, 0, 0.25);
     border-style: solid;
-    border-color: rgba(126, 126, 126, 0.57);
+    border-color: #2c1e4d;
     color: #ffffff;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .settingsSelectOptions div {
@@ -2169,7 +2209,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Hover + selected styles. */
 .settingsSelectOptions div:hover,
 .settingsSelectOptions div[selected] {
-    background-color: rgba(255, 255, 255, 0.25) !important;
+    background-color: #2c1e4d !important;
 }
 
 /* * *
@@ -2198,18 +2238,19 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main container for memory management. */
 #settingsMemoryContainer {
-    width: 75%;
+    width: 71%;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
     margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
 }
 
 /* Memory management title. */
 #settingsMemoryTitle {
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* Memory management content. */
@@ -2297,7 +2338,13 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main container for the JVM options setting. */
 #settingsJVMOptsContainer {
-    width: 75%;
+    width: 71%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    background: #151126;
 }
 
 /* JVM options title. */
@@ -2349,9 +2396,8 @@ input:checked+.toggleSwitchSlider:before {
 #settingsAboutCurrentContainer {
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: #151126;
+    border-radius: 6px;
     width: 75%;
     margin-bottom: 20px;
 }
@@ -2411,7 +2457,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Release type text. */
 #settingsAboutCurrentVersionTitle {
     font-size: 12px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: #23aa23;
     font-weight: bold;
 }
@@ -2454,11 +2500,9 @@ input:checked+.toggleSwitchSlider:before {
 .settingsChangelogContainer {
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: #151126;
+    border-radius: 6px;
     width: 75%;
-    margin-bottom: 20px;
 }
 
 /* Changelog content container. */
@@ -2506,7 +2550,7 @@ input:checked+.toggleSwitchSlider:before {
     background-color: rgba(255, 255, 255, 0.25);
     color: white;
     border-radius: 3px;
-    font-family: 'Avenir Book';
+    font-family: 'Montserrat Medium';
 }
 
 .settingsChangelogText li+li {
@@ -2564,13 +2608,13 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Main about content container. */
 #settingsUpdateStatusContainer {
+    margin-bottom: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: #151126;
+    border-radius: 6px;
     width: 75%;
-    margin-bottom: 20px;
 }
 
 /* Update content. */
@@ -2585,7 +2629,6 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgba(126, 126, 126, 0.57);
 }
 
 #settingsUpdateTitle {
@@ -2599,7 +2642,6 @@ input:checked+.toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     padding: 10px 0px;
-    border-bottom: 1px solid rgba(126, 126, 126, 0.57);
 }
 
 /* Checkmark next to the version information. */
@@ -2624,7 +2666,7 @@ input:checked+.toggleSwitchSlider:before {
 /* Release type text. */
 #settingsUpdateVersionTitle {
     font-size: 12px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: #23aa23;
     font-weight: bold;
 }
@@ -2641,31 +2683,31 @@ input:checked+.toggleSwitchSlider:before {
     padding-top: 10px;
     font-size: 14px;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Update action button styles. */
 #settingsUpdateActionButton {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    background: none;
+    background: #1d1332;
     border: none;
-    font-size: 14px;
-    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    color: white;
     cursor: pointer;
     outline: none;
-    text-align: left;
     transition: 0.25s ease;
+    border-radius: 4px;
+    padding-right: 45px;
+    padding-left: 45px;
 }
 
 #settingsUpdateActionButton:hover,
 #settingsUpdateActionButton:focus {
-    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+    background: #2c1e4d;
 }
 
 #settingsUpdateActionButton:active {
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
-    color: #c7c7c7;
+background: #2c1e4d;
 }
 
 #settingsUpdateActionButton:disabled {
@@ -2691,52 +2733,64 @@ input:checked+.toggleSwitchSlider:before {
     position: relative;
     transition: top 2s ease;
     top: 0px;
-    height: 77%;
+    height: 60%;
     display: flex;
+    z-index: 1;
+    justify-content: space-between;
 }
 
 #landingContainer>#upper>#left {
-    display: inline-flex;
-    width: 15%;
-    height: 100%;
-    justify-content: flex-end;
+width: 5%;
+    height: 162%;
+    border: solid #2c1e4d;
+    border-width: 2px;
+    border-left: 20px;
+    border-bottom: 20px;
+    border-top: 20px;
+    background: #151126;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #landingContainer>#upper>#content {
     display: inline-flex;
-    width: 70%;
+    width: 60%;
     height: 100%;
 }
 
 #landingContainer>#upper>#right {
-    display: inline-flex;
-    width: 15%;
     height: 100%;
+    padding: 20px;
 }
 
 /* Lower content container. */
 #landingContainer>#lower {
-    height: 23%;
+    height: 40%;
     display: flex;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    flex-direction: row-reverse;
 }
 
 #landingContainer>#lower>#left {
     position: relative;
     transition: top 2s ease;
     top: 0px;
+    width: 24%;
     height: 100%;
-    width: 33%;
     display: inline-flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #landingContainer>#lower>#left #content {
     position: relative;
-    top: 25px;
     display: inline-flex;
     line-height: 24px;
     left: 50px;
+    justify-content: flex-start;
 }
 
 #landingContainer>#lower>#center {
@@ -2744,7 +2798,7 @@ input:checked+.toggleSwitchSlider:before {
     transition: top 2s ease;
     top: 0px;
     height: 100%;
-    width: 34%;
+    width: 6%;
     display: inline-flex;
     justify-content: center;
 }
@@ -2759,18 +2813,33 @@ input:checked+.toggleSwitchSlider:before {
 #landingContainer>#lower>#right {
     position: relative;
     transition: top 2s ease;
-    top: 0px;
     height: 100%;
-    width: 33%;
+    width: 60%;
     display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
+#top-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%; 
+}
+
+#server-title {
+    font-size: 52px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-family: 'Montserrat ExtraBold'
+}
 /*******************************************************************************
  *                                                                             *
  * Landing View (News Styles)                                                  *
  *                                                                             *
  ******************************************************************************/
-
 /* Main container. */
 #newsContainer {
     position: absolute;
@@ -2835,7 +2904,7 @@ input:checked+.toggleSwitchSlider:before {
 #newsArticleTitle {
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     color: white;
     text-decoration: none;
     transition: 0.25s ease;
@@ -3124,21 +3193,21 @@ input:checked+.toggleSwitchSlider:before {
 
 #image_seal_container {
     position: relative;
-    height: 120px; /* Ajustado para a altura do selo */
-    width: 120px; /* Ajustado para a largura do selo */
+    height: 94px; /* Ajustado para a altura do selo */
+    width: 94px; /* Ajustado para a largura do selo */
     margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 /* Glitch image styles */
 #glitch_image_seal {
-    height: 120px;
-    width: 120px;
+    height: 56px;
+    width: 56px;
     background: url('../images/SealCircle.png');
     background-size: cover;
-    animation: float 4s ease-in-out infinite, glitch 4.5s infinite steps(1);
 }
 
 /* Animação de flutuação */
@@ -3193,7 +3262,7 @@ input:checked+.toggleSwitchSlider:before {
     z-index: 1;
     top: 115%;
     left: -17.5px;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-size: 12px;
     transition: visibility 0s linear 0.25s, opacity 0.25s ease;
 }
@@ -3220,65 +3289,35 @@ input:checked+.toggleSwitchSlider:before {
     justify-content: center;
     box-sizing: border-box;
     position: relative;
+    background: #1d1332;
+    border: solid 1px #2c1e4d;
+    border-radius: 6px;
+    padding: 5px;
+    margin-bottom: 30%;
+}
+
+#user_content:hover,
+#user_content:focus,
+#user_content:active {
+    background: none;
 }
 
 /* User profile avatar container. */
 /* Avatar container */
 #avatarContainer {
     box-sizing: border-box;
-    background: rgba(1, 2, 1, 0.5);
-    height: 60px;
-    width: 60px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+    height: 35px;
+    width: 35px;
     overflow: hidden;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    border-radius: 10px;
+
 }
 
-/* Avatar overlay */
-#avatarOverlay {
-    opacity: 0;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.25s ease;
-    font-weight: bold;
-    letter-spacing: 2px;
-    background-color: rgba(0, 0, 0, 0.00);
-    -webkit-user-select: none;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
 
-    #avatarOverlay:hover,
-    #avatarOverlay:focus {
-        opacity: 1;
-    }
-
-    #avatarOverlay:active {
-        background-color: rgba(0, 0, 0, 0.00);
-    }
-
-/* User profile name text */
-#user_text {
-    font-size: 12px;
-    min-width: 135px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-shadow: 0px 0px 20px black;
-    position: absolute;
-    bottom: -25px; /* Ajuste conforme necessário */
-    left: 50%; /* Posiciona o texto centralizado horizontalmente */
-    transform: translateX(-50%); /* Ajuste para centralizar o texto */
-    -webkit-user-select: initial;
-    text-align: center;
-}
 
 /* Social media icon content container. */
 #mediaContent {
@@ -3352,28 +3391,27 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Internal media button shared styles. */
 .mediaButton {
-    background: none;
-    border: none;
-    padding: 0px;
+    padding: 10px;
+    font-size: 25px;
+    color: rebeccapurple;
     display: flex;
     align-items: center;
     outline: none;
+    background: #1d1332;
+    border: 1px solid #2c1e4d;
+    border-radius: 6px;
+    margin-bottom: 20%
 }
 
 #settingsMediaContainer {
     position: relative;
 }
 
-/* Settings icon colors. */
-#settingsSVG {
-    stroke: #ffffff;
-    height: 15px;
-}
 
-.mediaButton:hover #settingsSVG,
-.mediaButton:focus #settingsSVG,
-.mediaButton:active #settingsSVG {
-    height: 23px;
+.mediaButton:hover,
+.mediaButton:focus,
+.mediaButton:active {
+ background: none;
 }
 
 /* Settings tooltip styles. */
@@ -3487,118 +3525,44 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Span which displays the player count of the selected server. */
 #player_count {
-    color: #949494;
-    font-size: 8px;
-    font-weight: 900;
-    text-shadow: 0px 0px 20px #949494;
-    margin-left: 10px;
+    color: #ffffff;
+    font-size: 10px;
 }
 
-/* Wrapper container for the mojang status bar. */
-#mojangStatusWrapper {
-    position: relative;
-    display: flex;
-    cursor: pointer;
-}
-
-/* Icon which displays the status of the mojang services. */
-#mojang_status_icon {
-    font-size: 30px;
-    color: #848484;
-    margin-left: 15px;
-    font-family: 'sans-serif';
-    display: none;
-}
-
-/* Tooltip which displays more details about the mojang statuses. */
-#mojangStatusTooltip {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    width: 145px;
-    min-height: 150px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
+#_status_wrapper {
+    width: 20%;
+    background: #151126;
     border-radius: 4px;
-    padding: 5px 10px;
-    z-index: 1;
-    font-family: 'Avenir Medium';
-    font-size: 12px;
-    transition: visibility 0s linear 0.25s, opacity 0.25s ease;
-    bottom: calc(100% + 15px);
-    transform: translateX(-50%);
-    margin-left: 50%;
-    box-shadow: 0px 0px 20px rgb(0, 0, 0);
-    cursor: default;
-}
-
-#mojangStatusTooltip:after {
-    content: " ";
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
-}
-
-#mojangStatusWrapper:hover #mojangStatusTooltip {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0s;
-}
-
-/* Tooltip title for the mojang statuses. */
-#mojangStatusTooltipTitle {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-}
-
-/* Wrapper container for the non essential services title. */
-#mojangStatusNEContainer {
     display: flex;
     align-items: center;
-    margin: 10px 0px;
+    justify-content: center;
+    padding: 5px;
 }
 
-/* White bar which surrounds the non essential service title. */
-.mojangStatusNEBar {
-    height: 1px;
-    width: 100%;
-    background: white;
+    #_status_wrapper .status-label {
+        font-size: 10px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    #_status_wrapper .status-value {
+        font-size: 10px;
+    }
+
+.status-icon {
+    font-size: 8px;
+    margin-right: 4px;
 }
 
-/* Non essential service title text. */
-#mojangStatusNETitle {
-    font-size: 10px;
-    padding: 0px 3px;
-    text-align: center;
-    letter-spacing: 1px;
-}
+    /* Estilo para o status online */
+    .status-icon.online {
+        color: #4CAF50; /* Verde para online */
+    }
 
-/* Wrapper container for mojang service information. */
-.mojangStatusContainer {
-    display: flex;
-}
-
-/* Displays the name of the mojang service. */
-.mojangStatusName {
-    width: 100%;
-    font-size: 10px;
-    letter-spacing: 1px;
-    line-height: 12px;
-    padding: 6px 0px;
-}
-
-/* Displays the status of the mojang service. */
-.mojangStatusIcon {
-    margin-right: 10px;
-    font-size: 18.5px;
-    color: #848484;
-}
+    /* Estilo para o status offline */
+    .status-icon.offline {
+        color: #9E9E9E; /* Cinza para offline */
+    }
 
 /* * *
 * Landing View (Bottom Styles) | Center Content
@@ -3675,46 +3639,41 @@ input:checked+.toggleSwitchSlider:before {
 * * */
 
 /* Main launch content container. */
-#landingContainer>#lower>#right #launch_content {
+#landingContainer > #lower > #right #launch_content {
     position: relative;
-    top: 25px;
     display: inline-flex;
-    align-items:center;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    width: 100%;    
 }
 
 /* The launch button. */
+/* The launch button. */
 #launch_button {
+    text-align: left;
+    width: 40%;
+    padding: 10px 0px;
+    padding-left: 10px;
     position: relative;
-    padding: 8px 25px;
-    border-radius: 7px;
-    border: 1px solid rgb(0, 255, 196);
+    border-radius: 3px;
+    border: #2c1e4d;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
-    background: transparent;
+    background: #1d1332;
     color: #fff;
     overflow: hidden;
-    box-shadow: 0 0 0 0 transparent;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    border: solid 1px #2c1e4d;
 }
 
     #launch_button:hover {
-        background: rgb(0, 255, 196);
-        box-shadow: 0 0 13px 5px rgba(0, 142, 236, 0.815);
-        -webkit-transition: all 0.2s ease-out;
-        -moz-transition: all 0.2s ease-out;
+        background: #1d1332;
         transition: all 0.2s ease-out;
     }
 
-        #launch_button:hover::before {
-            -webkit-animation: sh02 0.5s 0s linear;
-            -moz-animation: sh02 0.5s 0s linear;
-            animation: sh02 0.5s 0s linear;
-        }
-
+    /* Reversing the shine effect on mouse out */
     #launch_button::before {
         content: '';
         display: block;
@@ -3731,8 +3690,16 @@ input:checked+.toggleSwitchSlider:before {
         -ms-transform: skewX(-20deg);
         -o-transform: skewX(-20deg);
         transform: skewX(-20deg);
+        transition: all 0.5s ease-in-out; /* This transition controls the shine */
     }
 
+    #launch_button:hover::before {
+        -webkit-animation: sh02 0.5s 0s linear forwards;
+        -moz-animation: sh02 0.5s 0s linear forwards;
+        animation: sh02 0.5s 0s linear forwards;
+    }
+
+/* Animation for shine effect */
 @keyframes sh02 {
     from {
         opacity: 0;
@@ -3746,6 +3713,30 @@ input:checked+.toggleSwitchSlider:before {
     to {
         opacity: 0;
         left: 100%;
+    }
+}
+
+/* Reverse shine effect when mouse leaves */
+#launch_button:not(:hover)::before {
+    -webkit-animation: sh02-reverse 0.5s 0s linear forwards;
+    -moz-animation: sh02-reverse 0.5s 0s linear forwards;
+    animation: sh02-reverse 0.5s 0s linear forwards;
+}
+
+/* Reverse animation */
+@keyframes sh02-reverse {
+    from {
+        opacity: 0;
+        left: 100%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 0%;
     }
 }
 
@@ -3788,25 +3779,47 @@ input:checked+.toggleSwitchSlider:before {
     justify-content: center;
 }
 
+.small-white-svg {
+    width: 12px; /* Ajuste o tamanho conforme necessário */
+    height: 12px; /* Ajuste o tamanho conforme necessário */
+    fill: white; /* Cor branca */
+    margin-right: 2px;
+}
+
+
 /* Button which opens the server selection view. */
 #server_selection_button {
-    background: none;
-    border: none;
+    background: #151126;
     outline: none;
+    border: 0.5px solid #2c1e4d;
     cursor: pointer;
-    line-height: 24px;
-    padding: 0px;
+    border-radius: 3px;
     transition: 0.25s ease;
+    margin-bottom: 8px;
+    text-align: right;
+    padding: 6px 0px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    width: 30%;
 }
 
 #server_selection_button:hover,
 #server_selection_button:focus {
-    text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff, 0px 0px 20px #fff;
+    background: none;
 }
 
 #server_selection_button:active {
-    color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
+
+}
+
+#server_selection_button_warper {
+    text-align: left;
+    width: 100%;
 }
 
 /* Progress bar styles. */
@@ -3834,6 +3847,238 @@ input:checked+.toggleSwitchSlider:before {
 
 /*******************************************************************************
  *                                                                             *
+ * Streamers status (Status.ejs)                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+/* Main container for creators */
+#creators-container {
+    display: flex;
+    position: relative;
+    overflow-y: auto;
+    box-sizing: content-box;
+    scroll-behavior: smooth;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #0f0d21e8;
+    align-items: center;
+}
+
+    /* Custom scrollbar */
+    #creators-container::-webkit-scrollbar {
+        width: 6px; /* Increased for better visibility */
+        background: transparent;
+    }
+
+    #creators-container::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        border: 2px solid transparent; /* Adds space around the thumb */
+    }
+
+        #creators-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+/* Style for browsers that support scrollbar-width */
+#creators-container {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Visible thumb */
+}
+
+    /* Shadow at the top when scrolling */
+    #creators-container:before {
+        content: '';
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+    }
+
+    #creators-container[scrolled]:before {
+        opacity: 1;
+    }
+
+/* Container for each server */
+.creatorContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #1d1332;
+    border: solid 1px #2c1e4d;
+    border-radius: 6px;
+    width: 90%;
+    margin-top: 5%;
+    padding-bottom: 25px;
+}
+
+.creator-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-top: 20px;
+}
+
+/* List of creators within each server */
+.creator-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    row-gap: 40px;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+/* Creator card */
+.creator-item {
+    position: relative;
+    padding: 20px;
+    width: 250px;
+    height: 300px;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask: linear-gradient(135deg, #000c 40%, #000, #000c 60%) 100% 100%/250% 250%;
+    transition: all 1.0s ease;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+    /* Hover effects for the creator card */
+    .creator-item:hover {
+        opacity: 1;
+        transform: translateY(-2%);
+        -webkit-mask-position: 0 0;
+    }
+
+    .creator-item.alt {
+        -webkit-mask: linear-gradient(45deg, #000c 40%, #000, #000c 60%) 0 100%/250% 250%;
+    }
+
+        .creator-item.alt:hover {
+            -webkit-mask-position: 100% 0;
+        }
+
+    /* Creators with background image */
+    .creator-item.with-bg {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Opacity for offline creators */
+    .creator-item.offline {
+        opacity: 0.6;
+    }
+
+    /* Highlight for online creators */
+    .creator-item.online-opacity {
+        opacity: 0.7;
+    }
+
+        .creator-item.online-opacity:hover {
+            opacity: 1;
+            transform: translateY(-2%);
+        }
+
+/* Container for name and status */
+.creator-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Creator's name */
+.creator-item .creator-name {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Status circle */
+.status-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: gray; /* Default for offline */
+    transition: background-color 0.3s ease;
+}
+
+    .status-circle.live {
+        background-color: #4CAF50; /* Green for online */
+    }
+
+    .status-circle.offline {
+        background-color: #9E9E9E; /* Gray for offline */
+    }
+
+/* Button to visit the channel */
+.creator-item .visit-button {
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    opacity: 0;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+a {
+    color: inherit;
+}
+
+/* Close button */
+.Creators-closebtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #151126;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 25%;
+    border: solid 1px #2c1e4d;
+}
+
+    .Creators-closebtn:hover {
+        background: none;
+    }
+
+/* Empty message container */
+.empty-message {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 25%;
+    background: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
  * Overlay View (overlay.ejs)                                                  *
  *                                                                             *
  ******************************************************************************/
@@ -3846,13 +4091,13 @@ input:checked+.toggleSwitchSlider:before {
 #overlayContainer {
     position: absolute;
     z-index: 500;
-    top: 22px;
+    top: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100% - 22px);
-    background: rgba(0, 0, 0, 0.50);
+    height: 100%;
+    background-color: #0f0d21e8;
 }
 
 /* Main overlay content. */
@@ -3903,7 +4148,7 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Overlay title styles. */
 #overlayTitle {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -3927,20 +4172,19 @@ input:checked+.toggleSwitchSlider:before {
 /* Overlay acknowledge button styles. */
 #overlayAcknowledge {
     background: none;
-    border: 1px solid #ffffff;
+    border: 1px solid #2c1e4d;
     color: white;
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-weight: bold;
     border-radius: 2px;
-    padding: 0px 8.1px;
+    padding 8px;
     cursor: pointer;
     transition: 0.25s ease;
 }
 
 #overlayAcknowledge:hover,
 #overlayAcknowledge:focus {
-    box-shadow: 0px 0px 10px 0px #fff;
-    outline: none;
+    background: #1d1332;
 }
 
 #overlayAcknowledge:active {
@@ -3979,13 +4223,16 @@ input:checked+.toggleSwitchSlider:before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 75%;
+    height: 55%;
+    background: #0f0d21e8;
+    padding: 20px;
+    border-radius: 6px;
 }
 
 /* Server selection header. */
 #serverSelectHeader,
 #accountSelectHeader {
-    font-family: 'Avenir Medium';
+    font-family: 'Montserrat SemiBold';
     font-size: 20px;
     font-weight: bold;
     color: #fff;
@@ -4028,8 +4275,7 @@ input:checked+.toggleSwitchSlider:before {
 
 /* Content container for a server listing. */
 .serverListing {
-    border: none;
-    padding: 0px;
+    padding: 8px;
     width: 375px;
     min-height: 60px;
     display: flex;
@@ -4038,8 +4284,12 @@ input:checked+.toggleSwitchSlider:before {
     opacity: 0.6;
     transition: 0.25s ease;
     cursor: pointer;
+    border-color: #2c1e4d;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    background: none;
     position: relative;
-    background: rgba(131, 131, 131, 0.25);
 }
 
 .serverListing[selected] {
@@ -4055,18 +4305,19 @@ input:checked+.toggleSwitchSlider:before {
 
 .accountListing {
     color: white;
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
-    padding: 5px 45px;
+    border: 1px solid #2c1e4d;
+    border-radius: 6px;
+    padding: 5px 5px;
     width: 250px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     opacity: 0.6;
     transition: 0.25s ease;
     cursor: pointer;
     position: relative;
-    background: rgba(0, 0, 0, 0.25);
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    background: none;
 }
 
 .accountListing[selected] {
@@ -4078,6 +4329,7 @@ input:checked+.toggleSwitchSlider:before {
 .accountListing:focus {
     outline: none;
     opacity: 1.0;
+    background: #1d1332;
 }
 
 .accountListingName {
@@ -4085,6 +4337,7 @@ input:checked+.toggleSwitchSlider:before {
     height: 100%;
     width: 100%;
     padding-left: 10px;
+    font-size: 16px;
 }
 
 /* Add spacing between server listings. */
@@ -4106,9 +4359,17 @@ input:checked+.toggleSwitchSlider:before {
 /* Server listing image. */
 .serverListingImg {
     margin: 0px 10px 0px 5px;
-    border: 1px solid #fff;
     height: 50px;
-    width: 50px;
+    width: 50px;    
+}
+
+.server-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 5px;
+    margin-top: 10px;
+    object-fit: cover;
+    animation: float 4s ease-in-out infinite;   
 }
 
 /* Content container for the server listing's details. */
@@ -4216,26 +4477,28 @@ input:checked+.toggleSwitchSlider:before {
 }
 
 /* Server selection confirm button styles. */
-#serverSelectConfirm,
-#accountSelectConfirm {
-    background: none;
-    border: 1px solid #ffffff;
+#accountSelectConfirm,
+#accountSelectManage {
+    background: #151126;
+    border: solid 1px #2c1e4d;
+    text-align: left;
+    padding: 8px;
     color: white;
-    font-family: 'Avenir Medium';
-    font-weight: bold;
-    border-radius: 2px;
-    padding: 0px 8.1px;
     cursor: pointer;
+    outline: none;
     transition: 0.25s ease;
-    min-height: 20.67px;
+    border-radius: 4px;
+    padding-right: 45px;
+    padding-left: 45px;
 }
 
+#accountSelectManage:hover,
 #serverSelectConfirm:hover,
 #serverSelectConfirm:focus,
 #accountSelectConfirm:hover,
 #accountSelectConfirm:focus {
-    box-shadow: 0px 0px 10px 0px #fff;
-    outline: none;
+    background: none;
+    border: solid 1px #2c1e4d;
 }
 
 #serverSelectConfirm:active,
@@ -4285,7 +4548,7 @@ input:checked+.toggleSwitchSlider:before {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100% - 22px);
+    height: 100%;
 }
 
 /* Loading content container. */

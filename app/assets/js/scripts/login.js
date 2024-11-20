@@ -1,4 +1,4 @@
-/**
+    /**
  * Script for login.ejs
  */
 // Validation Regexes.

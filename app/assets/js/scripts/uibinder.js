@@ -16,8 +16,9 @@ let fatalStartupError = false
 // Mapping of each view to their container IDs.
 const VIEWS = {
     landing: '#landingContainer',
-    loginOptions: '#loginOptionsContainer',
+    loginOptions: '#loginContainer',
     login: '#loginContainer',
+    status: '#creators-container',
     settings: '#settingsContainer',
     welcome: '#welcomeContainer',
     waiting: '#waitingContainer'
@@ -57,6 +58,20 @@ function getCurrentView(){
     return currentView
 }
 
+/* select radom background video */
+document.addEventListener('DOMContentLoaded', () => {
+    const randomVideo = Math.floor(Math.random() * 5) + 1;
+    const videoUrl = `https://hastastudios.com.br/videos/${randomVideo}.mp4`;
+    const videoElement = document.getElementById('background-video');
+    const sourceElement = videoElement.querySelector('source');
+    if (videoElement && sourceElement) {
+        sourceElement.src = videoUrl;
+        videoElement.load();
+    } else {
+        console.error("Elemento de vídeo ou fonte não encontrado.");
+    }
+});
+
 async function showMainUI(data){
 
     if(!isDev){
@@ -68,8 +83,7 @@ async function showMainUI(data){
     updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
     refreshServerStatus()
     setTimeout(() => {
-        document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
-        document.body.style.backgroundImage = `url('assets/images/backgrounds/${document.body.getAttribute('bkid')}.jpg')`
+       // document.getElementById('frameBar').style.backgroundColor = 'rgb(5, 8, 13)'
         $('#main').show()
 
         const isLoggedIn = Object.keys(ConfigManager.getAuthAccounts()).length > 0
@@ -90,19 +104,19 @@ async function showMainUI(data){
             } else {
                 loginOptionsCancelEnabled(false)
                 loginOptionsViewOnLoginSuccess = VIEWS.landing
-                loginOptionsViewOnLoginCancel = VIEWS.loginOptions
-                currentView = VIEWS.loginOptions
-                $(VIEWS.loginOptions).fadeIn(1000)
+                loginOptionsViewOnLoginCancel = VIEWS.login
+                currentView = VIEWS.login
+                $(VIEWS.login).fadeIn(1000)
             }
         }
 
         setTimeout(() => {
-            $('#loadingContainer').fadeOut(500, () => {
+            $('#loadingContainer, #loadSpinnerImage').fadeOut(800, () => {
                 $('#loadSpinnerImage').removeClass('rotating')
             })
-        }, 250)
+        }, 800)
         
-    }, 750)
+    }, 1200)
     // Disable tabbing to the news container.
     initNews().then(() => {
         $('#newsContainer *').attr('tabindex', '-1')
@@ -381,9 +395,9 @@ async function validateSelectedAccount(){
                 toggleOverlay(false)
                 switchView(getCurrentView(), VIEWS.loginOptions)
             })
-            setDismissHandler(() => {
+            setDismissHandler(async () => {
                 if(accLen > 1){
-                    prepareAccountSelectionList()
+                    await prepareAccountSelectionList()
                     $('#overlayContent').fadeOut(250, () => {
                         bindOverlayKeys(true, 'accountSelectContent', true)
                         $('#accountSelectContent').fadeIn(250)

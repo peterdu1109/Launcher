@@ -28,7 +28,7 @@ window.eval = global.eval = function () {
 // Display warning when devtools window is opened.
 remote.getCurrentWebContents().on('devtools-opened', () => {
     console.log('%cCALM DOWN', 'color: white; -webkit-text-stroke: 4px #a02d2a; font-size: 60px; font-weight: bold')
-    console.log('%cplease close the console if you dont know what are you doing, please open a ticket instead', 'font-size: 16px')
+    console.log('%cplease close the console if you dont know what are you doing, open a ticket instead', 'font-size: 16px')
 })
 
 // Disable zoom, needed for darwin.

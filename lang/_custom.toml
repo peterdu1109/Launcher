@@ -8,7 +8,7 @@ mediaGitHubURL = "https://hastastudios.com.br"
 mediaTwitterURL = "https://x.com/Zelthoriaismp87"
 mediaInstagramURL = "https://www.tiktok.com/@_zsmp_"
 mediaYouTubeURL = "https://youtube.com/@zsmpofc?si=bEThHknf_WXB7wqp"
-mediaDiscordURL = "https://discord.gg/zNWUXdt"
+mediaDiscordURL = "https://discord.gg/hastastudios"
 
 [ejs.settings]
 sourceGithubLink = "https://github.com/Shisuiicaro/HastaStudiosLauncher"
@@ -18,13 +18,11 @@ changeLanguageTitle = "Change the launcher language"
 changeLanguageDesc = "You can change the language in the list below. This text will not change if you change the language so you can find your wayback here to change it back"
 
 [ejs.welcome]
-welcomeHeader = "WELCOME TO ZSMP"
+welcomeHeader = "WELCOME TO HASTA STUDIOS"
 welcomeDescription = """
-Welcome to ZSMP, where your Minecraft adventure begins! Immerse yourself in a world of endless possibilities and unforgettable experiences on the best SMP server you can imagine. Join our vibrant community of players and embark on epic quests, build amazing creations, and forge lasting friendships.
+At Hasta Studios, innovation is at the heart of everything we do. From crafting immersive mods to managing extraordinary Minecraft servers, our mission is clear: to deliver the ultimate gaming experience for players around the globe.
 
-But wait, there's more! To join in the fun, just hop onto our Discord server to self-register and gain access to our exclusive realm of emotions. Whether you're a seasoned explorer or a novice builder, ZSMP welcomes players of all skill levels.
-
-So, what are you waiting for? Click "Continue" and let the adventures begin!
+This launcher is your gateway to a universe of adventure. With seamless access to all Hasta Studios servers, you can dive into breathtaking worlds, forge new stories, and explore challenges designed to inspire creativity and excitement.
 """
 
 [ejs.overlay]

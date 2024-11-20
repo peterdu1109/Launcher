@@ -227,43 +227,56 @@ ipcMain.on(MSFT_OPCODE.OPEN_LOGOUT, (ipcEvent, uuid, isLastAccount) => {
 let win
 
 function createWindow() {
-
     win = new BrowserWindow({
-     width: 1500,
-     minWidth: 1255,
-     height: 844,
-     minHeight: 704,
+        width: 1120,
+        minWidth: 1120,
+        height: 630,
+        minHeight: 630,
         icon: getPlatformIcon('SealCircle'),
         frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'app', 'assets', 'js', 'preloader.js'),
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
+            backgroundThrottling: false
         },
         backgroundColor: '#000000'
-    })
-    remoteMain.enable(win.webContents)
+    });
+
+    remoteMain.enable(win.webContents);
 
     const data = {
         bkid: Math.floor((Math.random() * fs.readdirSync(path.join(__dirname, 'app', 'assets', 'images', 'backgrounds')).length)),
         lang: (str, placeHolders) => LangLoader.queryEJS(str, placeHolders)
-    }
-    Object.entries(data).forEach(([key, val]) => ejse.data(key, val))
+    };
+    Object.entries(data).forEach(([key, val]) => ejse.data(key, val));
 
-    win.loadURL(pathToFileURL(path.join(__dirname, 'app', 'app.ejs')).toString())
+    win.loadURL(pathToFileURL(path.join(__dirname, 'app', 'app.ejs')).toString());
 
     /*win.once('ready-to-show', () => {
-        win.show()
-    })*/
+        win.show();
+    });*/
 
-    win.removeMenu()
+    win.removeMenu();
+    win.resizable = true;
 
-    win.resizable = true
+    win.on('will-resize', (event, newBounds) => {
+        const width = newBounds.width;
+        const height = Math.round(width / (16 / 9));
+        event.preventDefault(); 
+        win.setBounds({
+            x: newBounds.x,
+            y: newBounds.y,
+            width: width,
+            height: height
+        });
+    });
 
     win.on('closed', () => {
-        win = null
-    })
+        win = null;
+    });
 }
+
 
 function createMenu() {
     
