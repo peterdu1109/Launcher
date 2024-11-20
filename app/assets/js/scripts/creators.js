@@ -2,8 +2,6 @@ require('dotenv').config({ override: true });
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const OAUTH_TOKEN = process.env.OAUTH_TOKEN;
-console.log('CLIENT_ID:', process.env.CLIENT_ID);
-console.log('OAUTH_TOKEN:', process.env.OAUTH_TOKEN);
 
 async function fetchFromTwitch(endpoint) {
     try {

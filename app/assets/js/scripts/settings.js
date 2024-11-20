@@ -353,6 +353,8 @@ document.getElementById('settingsAddMojangAccount').onclick = (e) => {
     })
 }
 
+const msftLoginLogger = LoggerUtil.getLogger('Microsoft Login')
+const msftLogoutLogger = LoggerUtil.getLogger('Microsoft Logout')
 
 // Bind reply for Microsoft Login.
 ipcRenderer.on(MSFT_OPCODE.REPLY_LOGIN, (_, ...arguments_) => {
