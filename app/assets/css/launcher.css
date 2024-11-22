@@ -3648,7 +3648,6 @@ width: 5%;
 }
 
 /* The launch button. */
-/* The launch button. */
 #launch_button {
     text-align: left;
     width: 40%;
@@ -3747,6 +3746,26 @@ width: 5%;
     transition: box-shadow 0.2s ease-in;
 }
 
+/* Disable styles */
+#launch_button:disabled {
+    color: #999999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+    #launch_button:disabled:hover {
+        background: #1d1332;
+        color: #999999;
+    }
+
+
+    #launch_button:disabled::before {
+        opacity: 0; 
+        left: 0%; 
+        box-shadow: none; 
+        transform: none; 
+        transition: none; 
+    }
 
 
 /* Launch details main container, hidden until launch processing begins. */
@@ -3820,6 +3839,23 @@ width: 5%;
 #server_selection_button_warper {
     text-align: left;
     width: 100%;
+}
+
+#server_selection_button:disabled {
+    color: #999999;
+    cursor: not-allowed;
+    box-shadow: none; 
+}
+
+    /* Desativa o efeito de hover quando o botão está desativado */
+    #server_selection_button:disabled:hover,
+    #server_selection_button:disabled:focus {
+        background: #151126;
+    }
+
+/* Remove qualquer transição quando o botão está desativado */
+#server_selection_button:disabled {
+    transition: none; /* Desativa as transições */
 }
 
 /* Progress bar styles. */

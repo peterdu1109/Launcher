@@ -51,13 +51,36 @@ const loggerLanding = LoggerUtil.getLogger('Landing')
  */
 function toggleLaunchArea(loading){
     if(loading){
-        launch_details.style.display = 'flex'
-        launch_content.style.display = 'none'
+        launch_details.style.display = 'flex';
+        launch_button.style.display = 'none';
+
+        // Desativar os botões dentro de launch_content
+        const launchButton = document.querySelector('#launch_button');
+        const serverSelectionButton = document.querySelector('#server_selection_button');
+        
+        if(launchButton) {
+            launchButton.disabled = true;
+        }
+        if(serverSelectionButton) {
+            serverSelectionButton.disabled = true;
+        }
     } else {
-        launch_details.style.display = 'none'
-        launch_content.style.display = 'inline-flex'
+        launch_details.style.display = 'none';
+        launch_button.style.display = 'flex';
+
+        // Ativar os botões dentro de launch_content
+        const launchButton = document.querySelector('#launch_button');
+        const serverSelectionButton = document.querySelector('#server_selection_button');
+        
+        if(launchButton) {
+            launchButton.disabled = false;
+        }
+        if(serverSelectionButton) {
+            serverSelectionButton.disabled = false;
+        }
     }
 }
+
 
 /**
  * Set the details text of the loading area.
