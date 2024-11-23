@@ -1,8 +1,15 @@
-require('dotenv').config({ override: true });
+const encodedToken = 'd2RmcXc2aG0xM3ZucnQ0Y2s5cmZ3cXc4aGZpZW5o'; // OAuth Token em Base64
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const OAUTH_TOKEN = process.env.OAUTH_TOKEN;
+// Decodifica o token
+const OAUTH_TOKEN = Buffer.from(encodedToken, 'base64').toString('utf-8');
 
+// Loga o OAuth Token decodificado no console
+console.log('Decoded OAuth Token:', OAUTH_TOKEN);
+
+// Substitua 't7qyhzis36p18y4yi1ym9juwr6f7na' pelo seu Client-ID real
+const CLIENT_ID = 't7qyhzis36p18y4yi1ym9juwr6f7na';
+
+// Função para fazer requisição à API do Twitch
 async function fetchFromTwitch(endpoint) {
     try {
         const response = await fetch(endpoint, {
