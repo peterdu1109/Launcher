@@ -3403,6 +3403,24 @@ width: 5%;
     margin-bottom: 20%
 }
 
+@keyframes pulseWave {
+    0% {
+        text-shadow: 0 0 5px rgba(102, 51, 153, 0.6), 0 0 10px rgba(102, 51, 153, 0.4), 0 0 20px rgba(102, 51, 153, 0.2);
+    }
+
+    50% {
+        text-shadow: 0 0 10px rgba(102, 51, 153, 0.8), 0 0 20px rgba(102, 51, 153, 0.6), 0 0 30px rgba(102, 51, 153, 0.4);
+    }
+
+    100% {
+        text-shadow: 0 0 5px rgba(102, 51, 153, 0.6), 0 0 10px rgba(102, 51, 153, 0.4), 0 0 20px rgba(102, 51, 153, 0.2);
+    }
+}
+
+#CreatorsMediaButton.live i.fa-signal-stream {
+    animation: pulseWave 1.5s infinite;
+}
+
 #settingsMediaContainer {
     position: relative;
 }
@@ -3490,6 +3508,8 @@ width: 5%;
 #tiktok:active {
     fill: #a500ff;
 }
+
+
 /*******************************************************************************
  *                                                                             *
  * Landing View (Bottom Styles)                                                *
