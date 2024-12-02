@@ -8,9 +8,18 @@ let client;
 let activity;
 
 exports.initRPC = function(genSettings, servSettings, initialDetails = Lang.queryJS('discord.waiting')) {
-    const clientId = servSettings.clientId || genSettings.clientId;
+    let clientId;
+    const serverName = servSettings.largeImageKey || 'undefined';
+
+    if (serverName.toLowerCase() === 'gods') {
+        clientId = '1309721703047495820';
+    } else if (serverName.toLowerCase() === 'deadland') {
+        clientId = '1277831457271709707';
+    } else {
+        clientId = servSettings.clientId || genSettings.clientId;
+    }
+
     if (!clientId) {
-        logger.error('Client ID não definido. Não foi possível iniciar o Discord RPC.');
         return;
     }
 
@@ -26,31 +35,36 @@ exports.initRPC = function(genSettings, servSettings, initialDetails = Lang.quer
         startTimestamp: new Date().getTime(),
         instance: false,
         buttons: [
-            { label: 'Website', url: 'https://hastastudios.com.br' }, // Botão para o website
-            { label: 'Entrar no Discord', url: servSettings.discordInvite }, // Botão para o Discord do servidor
+            { label: 'Website', url: 'https://hastastudios.com.br' },
+            { label: 'Discord', url: 'https://discord.gg/hastastudios' }
         ],
     };
 
     client.on('ready', () => {
-        logger.info(`Discord RPC conectado com o Client ID: ${clientId}`);
         client.setActivity(activity);
     });
 
     client.login({ clientId }).catch((error) => {
-        if (error.message.includes('ENOENT')) {
-            logger.info('Unable to initialize Discord Rich Presence, no client detected.');
-        } else {
+        if (!error.message.includes('ENOENT')) {
             logger.info('Unable to initialize Discord Rich Presence: ' + error.message, error);
         }
     });
 };
 
+exports.updateActivity = function(newActivity) {
+    const updatedActivity = { ...activity, ...newActivity };
+    activity = updatedActivity;
+    client.setActivity(activity);
+};
+
 exports.updateDetails = function(details) {
-    if (!client) {
-        logger.warn('Não é possível atualizar os detalhes, o RPC ainda não foi inicializado.');
-        return;
-    }
+    if (!client) return;
     activity.details = details;
+    client.setActivity(activity);
+};
+
+exports.updateState = function(state) {
+    activity.state = state;
     client.setActivity(activity);
 };
 
