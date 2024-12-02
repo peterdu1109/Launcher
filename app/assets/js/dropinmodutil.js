@@ -9,8 +9,8 @@ const { SHELL_OPCODE } = require('./ipcconstants')
 const MOD_REGEX = /^(.+(jar|zip|litemod))(?:\.(disabled))?$/
 const DISABLED_EXT = '.disabled'
 
-const SHADER_REGEX = /^(.+)\.zip$/
-const SHADER_OPTION = /shaderPack=(.+)/
+const SHADER_REGEX = /^([a-zA-Z0-9\-\_]+(?:\.[a-zA-Z0-9\-\_]+)*)(\.zip)$/;
+const SHADER_OPTION = /^shaderPack=(.*)$/m
 const SHADER_DIR = 'shaderpacks'
 const SHADER_CONFIG = 'config/oculus.properties'
 
