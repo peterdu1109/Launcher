@@ -1,13 +1,13 @@
 {
-    "name": "HastaStudiosLauncher",
+    "name": "peterdu1109",
     "version": "3.1.0",
-    "productName": "Hasta Studios Launcher",
-    "description": "Oficial Laucnher For All Hasta Studios Projects",
-    "author": "Shisuys (https://github.com/shisuiicaro/)",
+    "productName": "peterdu1109",
+    "description": "Officiel Launcher de peterdu1109",
+    "author": "peterdu1109",
     "license": "UNLICENSED",
-    "homepage": "https://github.com/Shisuiicaro/HastaStudiosLauncher",
+    "homepage": "https://github.com/peterdu1109/Launcher",
     "bugs": {
-        "url": "https://discord.gg/hastastudios"
+        "url": "https://github.com/peterdu1109/Launcher"
     },
     "private": true,
     "main": "index.js",
@@ -46,6 +46,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Shisuiicaro/HastaStudiosLauncher.git"
+        "url": "git+https://github.com/peterdu1109/Launcher.git"
     }
 }
